@@ -9,7 +9,6 @@ public partial class MainLevel : Node3D
 {
 
     ENetMultiplayerPeer EnetPeer;
-    PackedScene PuppetPlayer = ResourceLoader.Load<PackedScene>("res://scenes/actorScenes/Models/MageModel.tscn", cacheMode: ResourceLoader.CacheMode.Reuse);
 
 
     public override void _EnterTree()

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kristofer\\Documents\\RobotGame\\New Game Project.csproj": {}
+    "C:\\USERS\\KRISTOFER\\DOCUMENTS\\ROBOTGAME\\New Game Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kristofer\\Documents\\RobotGame\\New Game Project.csproj": {
+    "C:\\USERS\\KRISTOFER\\DOCUMENTS\\ROBOTGAME\\New Game Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kristofer\\Documents\\RobotGame\\New Game Project.csproj",
+        "projectUniqueName": "C:\\USERS\\KRISTOFER\\DOCUMENTS\\ROBOTGAME\\New Game Project.csproj",
         "projectName": "New Game Project",
-        "projectPath": "C:\\Users\\Kristofer\\Documents\\RobotGame\\New Game Project.csproj",
+        "projectPath": "C:\\USERS\\KRISTOFER\\DOCUMENTS\\ROBOTGAME\\New Game Project.csproj",
         "packagesPath": "C:\\Users\\Kristofer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kristofer\\Documents\\RobotGame\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "C:\\USERS\\KRISTOFER\\DOCUMENTS\\ROBOTGAME\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Users\\Kristofer\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
