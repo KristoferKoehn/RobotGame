@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0ma0s7x8jr5b"]
+
+[ext_resource type="Script" path="res://scenes/menu/networkMenu/ServerMenu.cs" id="1_tvh56"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_tvh56")
+IPAddress = "50.47.173.115"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.919
+anchor_bottom = 0.823
+offset_right = 93.312
+offset_bottom = 114.696
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Tree" type="Tree" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0123457
+anchor_bottom = 0.0123457
+offset_left = 54.0
+offset_top = 35.0
+offset_right = 1106.0
+offset_bottom = 520.0
+columns = 2
+allow_reselect = true
+enable_recursive_folding = false
+select_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Join" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 954.0
+offset_top = 544.0
+offset_right = 1088.0
+offset_bottom = 581.0
+text = "Join"
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.224826
+anchor_top = -0.324074
+anchor_right = 0.224826
+anchor_bottom = -0.324074
+offset_left = -226.0
+offset_top = 811.0
+offset_right = 26.0
+offset_bottom = 842.0
+text = "Back
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit" type="TextEdit" parent="Control"]
+layout_mode = 0
+offset_left = 924.0
+offset_top = 591.0
+offset_right = 1089.0
+offset_bottom = 628.0
+placeholder_text = "optional ip"
+
+[node name="Refresh" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1007.0
+offset_top = 7.0
+offset_right = 1106.0
+offset_bottom = 38.0
+text = "Refresh List
+"
+
+[connection signal="pressed" from="Control/Panel/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Control/Refresh" to="." method="_on_refresh_pressed"]

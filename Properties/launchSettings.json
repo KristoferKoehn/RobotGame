@@ -1,0 +1,30 @@
+{
+  "profiles": {
+    "MMOTest": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\Kristofer\\Desktop\\Godot_v4.2-stable_mono_win64\\Godot_v4.2-stable_mono_win64",
+      "remoteDebugEnabled": false
+    },
+    "MMO kris desktop": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\Kristofer\\Downloads\\Godot_v4.2-beta4_mono_win64\\Godot_v4.2-beta4_mono_win64\\Godot_v4.2-beta4_mono_win64.exe",
+      "workingDirectory": ".",
+      "nativeDebugging": false
+    },
+    "Headless Server": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\Kristofer\\Downloads\\Godot_v4.2-beta4_mono_win64\\Godot_v4.2-beta4_mono_win64\\Godot_v4.2-beta4_mono_win64.exe",
+      "commandLineArgs": "--headless --verbose"
+    },
+    "Arlo Laptop": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\Arlo\\Godot_v4.2.1-stable_mono_win64\\Godot_v4.2.1-stable_mono_win64\\Godot_v4.2.1-stable_mono_win64.exe",
+      "workingDirectory": "C:\\Users\\Arlo\\Coding Projects\\Personal Projects\\Godot Projects\\MMO Test\\MMOTest"
+    },
+    "Kris Laptop": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\ferna\\Desktop\\Godot_v4.2-stable_mono_win64\\Godot_v4.2-stable_mono_win64.exe",
+      "workingDirectory": "."
+    }
+  }
+}

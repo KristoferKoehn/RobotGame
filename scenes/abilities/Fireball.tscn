@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://bf0223hldf5n1"]
+
+[ext_resource type="Script" path="res://scenes/abilities/Fireball.cs" id="1_j4lpo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_imrvu"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v6lc1"]
+transparency = 4
+albedo_color = Color(40, 40, 40, 0.847)
+emission_enabled = true
+emission = Color(1, 0.372549, 0, 1)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_6ap8y"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:linear_velocity")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v0eie"]
+radius = 0.431379
+
+[node name="Fireball" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 3
+gravity_scale = 0.6
+script = ExtResource("1_j4lpo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.36713e-05, 0.00742054, 0.00275826)
+mesh = SubResource("SphereMesh_imrvu")
+surface_material_override/0 = SubResource("StandardMaterial3D_v6lc1")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_6ap8y")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_v0eie")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

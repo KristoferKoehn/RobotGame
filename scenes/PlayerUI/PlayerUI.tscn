@@ -1,0 +1,117 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6sxms4tbyhr"]
+
+[ext_resource type="Script" path="res://scenes/PlayerUI/PlayerUI.cs" id="1_b8ymi"]
+[ext_resource type="Script" path="res://scenes/PlayerUI/SpawnPanel.cs" id="2_5b6ic"]
+
+[node name="PlayerUI" type="CanvasLayer"]
+script = ExtResource("1_b8ymi")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 23.0
+offset_top = 23.0
+offset_right = 443.0
+offset_bottom = 50.0
+
+[node name="ActorID" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 616.0
+offset_right = 160.0
+offset_bottom = 639.0
+
+[node name="Team" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 587.0
+offset_right = 102.0
+offset_bottom = 610.0
+
+[node name="SpawnPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 225.0
+offset_top = 168.0
+offset_right = 916.0
+offset_bottom = 508.0
+script = ExtResource("2_5b6ic")
+
+[node name="Panel" type="Panel" parent="SpawnPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpawnButton" type="Button" parent="SpawnPanel/Panel"]
+layout_mode = 2
+offset_left = 45.0
+offset_top = 283.0
+offset_right = 121.0
+offset_bottom = 314.0
+text = "Spawn
+"
+
+[node name="Label" type="Label" parent="SpawnPanel/Panel"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 20.0
+offset_right = 69.0
+offset_bottom = 43.0
+text = "Select class: "
+
+[node name="ClassSelection" type="Label" parent="SpawnPanel/Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 246.0
+offset_right = 151.0
+offset_bottom = 269.0
+text = "Playing As: ---"
+
+[node name="GridContainer" type="GridContainer" parent="SpawnPanel/Panel"]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 67.0
+offset_right = 337.0
+offset_bottom = 168.0
+columns = 3
+
+[node name="MageButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
+layout_mode = 2
+text = "Mage"
+
+[node name="BarbarianButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
+layout_mode = 2
+text = "Barbarian"
+
+[node name="WarriorButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
+layout_mode = 2
+text = "Warrior"
+
+[node name="RogueButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
+layout_mode = 2
+text = "Rogue"
+
+[node name="DruidButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
+layout_mode = 2
+text = "Druid"
+
+[node name="EngineerButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
+layout_mode = 2
+text = "Engineer"
+
+[node name="NecromancerButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
+layout_mode = 2
+text = "Necromancer"
+
+[node name="PeteButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
+layout_mode = 2
+text = "Pete"
+
+[connection signal="pressed" from="SpawnPanel/Panel/SpawnButton" to="SpawnPanel" method="_on_spawn_button_pressed"]
+[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/MageButton" to="SpawnPanel" method="_on_mage_button_pressed"]
+[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/BarbarianButton" to="SpawnPanel" method="_on_barbarian_button_pressed"]
+[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/WarriorButton" to="SpawnPanel" method="_on_warrior_button_pressed"]
+[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/RogueButton" to="SpawnPanel" method="_on_rogue_button_pressed"]
+[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/DruidButton" to="SpawnPanel" method="_on_druid_button_pressed"]
+[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/EngineerButton" to="SpawnPanel" method="_on_engineer_button_pressed"]
+[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/NecromancerButton" to="SpawnPanel" method="_on_necromancer_button_pressed"]
+[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/PeteButton" to="SpawnPanel" method="_on_pete_button_pressed"]

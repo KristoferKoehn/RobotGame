@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw87a2gx5gr8a"]
+
+[ext_resource type="Script" path="res://scenes/utility/ActorTimer.cs" id="1_5yppo"]
+
+[node name="ActorTimer" type="Timer"]
+script = ExtResource("1_5yppo")

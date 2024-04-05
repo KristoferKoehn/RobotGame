@@ -15,3 +15,4 @@ C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\refint\New Gam
 C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\New Game Project.pdb
 C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\New Game Project.genruntimeconfig.cache
 C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\ref\New Game Project.dll
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\bin\Debug\Newtonsoft.Json.dll

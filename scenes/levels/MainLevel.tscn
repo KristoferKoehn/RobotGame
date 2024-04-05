@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://cj5kbymecdp11"]
+
+[ext_resource type="Script" path="res://scenes/levels/MainLevel.cs" id="1_i7bbw"]
+[ext_resource type="PackedScene" uid="uid://bmk783fseep4a" path="res://scenes/actorScenes/Controllers/PlayerController.tscn" id="2_5xjtm"]
+[ext_resource type="PackedScene" uid="uid://bjjceeyq3csc3" path="res://scenes/Environment/Skybox.tscn" id="16_l618w"]
+[ext_resource type="PackedScene" uid="uid://cuaikm7d1lbke" path="res://scenes/utility/SpawnArea.tscn" id="17_el60w"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eds52"]
+load_path = "res://.godot/imported/texture_05.png-8e735a0ff26c8a383e8e9d7ae7784fbc.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dvsge"]
+albedo_texture = SubResource("CompressedTexture2D_eds52")
+metallic_specular = 0.0
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a6bmg"]
+resource_local_to_scene = true
+size = Vector3(9.616, 1, 7.929)
+
+[node name="MainLevel" type="Node3D"]
+script = ExtResource("1_i7bbw")
+
+[node name="Main" parent="." instance=ExtResource("16_l618w")]
+clouds_cutoff = 0.47
+time_scale = 0.119
+sun_base_enegry = 0.9
+moon_base_enegry = 0.2
+
+[node name="Sun" parent="Main" index="1"]
+transform = Transform3D(0.847143, -0.195679, -0.494024, 0.52613, 0.178679, 0.831421, -0.0744197, -0.964252, 0.254319, 0, 0, 0)
+light_energy = 0.9
+
+[node name="Moon" parent="Main" index="2"]
+transform = Transform3D(0.660938, 0.208132, -0.721, 0.750421, -0.190051, 0.633047, -0.00526923, -0.959458, -0.281799, 0, 0, 0)
+light_energy = 0.2
+
+[node name="PuppetModels" type="Node" parent="."]
+
+[node name="ClientModels" type="Node" parent="."]
+
+[node name="AbilityModels" type="Node" parent="."]
+
+[node name="ObjectiveScenes" type="Node" parent="."]
+
+[node name="PuppetSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("../PuppetModels")
+
+[node name="AbilitySpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/abilities/Fireball.tscn", "res://scenes/abilities/FireballExplosion.tscn")
+spawn_path = NodePath("../AbilityModels")
+
+[node name="PlayerController" parent="." instance=ExtResource("2_5xjtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Objective Nodes" type="Node" parent="."]
+
+[node name="TerrainModels" type="Node" parent="."]
+
+[node name="floor" type="CSGBox3D" parent="TerrainModels"]
+material_override = SubResource("StandardMaterial3D_dvsge")
+use_collision = true
+size = Vector3(1000, 1, 1000)
+
+[node name="Unaffiliated Spawn" parent="." instance=ExtResource("17_el60w")]
+transform = Transform3D(0.764393, 0, -0.644751, 0, 1, 0, 0.644751, 0, 0.764393, -1.85626, 1.64457, 1.34909)
+Shape = SubResource("BoxShape3D_a6bmg")
+
+[connection signal="child_entered_tree" from="PuppetModels" to="." method="_on_puppet_models_child_entered_tree"]
+[connection signal="child_entered_tree" from="ClientModels" to="." method="_on_client_models_child_entered_tree"]
+[connection signal="child_entered_tree" from="AbilityModels" to="." method="_on_ability_models_child_entered_tree"]
+[connection signal="despawned" from="AbilitySpawner" to="." method="_on_ability_spawner_despawned"]
+
+[editable path="Main"]

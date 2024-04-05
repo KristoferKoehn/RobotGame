@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://k7bv2lgnb7v"]
+
+[ext_resource type="Script" path="res://scenes/utility/NotificationLabel.cs" id="1_ko6gj"]
+
+[node name="NotificationLabel" type="Label"]
+offset_right = 196.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 3.324, 4, 1)
+text = "TEST"
+script = ExtResource("1_ko6gj")
