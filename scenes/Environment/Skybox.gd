@@ -94,7 +94,7 @@ func _ready() -> void :
 			moon_base_enegry = moon.light_energy
 	_update()
 
-func _process( delta: float ) -> void :
+func _process( _delta: float ) -> void :
 	pass
 #	if not Engine.is_editor_hint() : # We don't want a time lapse in the editor
 #		day_time += delta * time_scale
