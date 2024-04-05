@@ -1,0 +1,17 @@
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\bin\Debug\New Game Project.deps.json
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\bin\Debug\New Game Project.runtimeconfig.json
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\bin\Debug\New Game Project.dll
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\bin\Debug\New Game Project.pdb
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\New Game Project.csproj.AssemblyReference.cache
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\New Game Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\New Game Project.AssemblyInfoInputs.cache
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\New Game Project.AssemblyInfo.cs
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\New Game Project.csproj.CoreCompileInputs.cache
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\New Game Project.csproj.CopyComplete
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\New Game Project.dll
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\refint\New Game Project.dll
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\New Game Project.pdb
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\New Game Project.genruntimeconfig.cache
+C:\Users\Kristofer\Documents\RobotGame\.godot\mono\temp\obj\Debug\ref\New Game Project.dll
