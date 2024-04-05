@@ -74,44 +74,9 @@ offset_right = 337.0
 offset_bottom = 168.0
 columns = 3
 
-[node name="MageButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
+[node name="TestPlayerButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
 layout_mode = 2
-text = "Mage"
-
-[node name="BarbarianButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
-layout_mode = 2
-text = "Barbarian"
-
-[node name="WarriorButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
-layout_mode = 2
-text = "Warrior"
-
-[node name="RogueButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
-layout_mode = 2
-text = "Rogue"
-
-[node name="DruidButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
-layout_mode = 2
-text = "Druid"
-
-[node name="EngineerButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
-layout_mode = 2
-text = "Engineer"
-
-[node name="NecromancerButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
-layout_mode = 2
-text = "Necromancer"
-
-[node name="PeteButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
-layout_mode = 2
-text = "Pete"
+text = "TestPlayer"
 
 [connection signal="pressed" from="SpawnPanel/Panel/SpawnButton" to="SpawnPanel" method="_on_spawn_button_pressed"]
-[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/MageButton" to="SpawnPanel" method="_on_mage_button_pressed"]
-[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/BarbarianButton" to="SpawnPanel" method="_on_barbarian_button_pressed"]
-[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/WarriorButton" to="SpawnPanel" method="_on_warrior_button_pressed"]
-[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/RogueButton" to="SpawnPanel" method="_on_rogue_button_pressed"]
-[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/DruidButton" to="SpawnPanel" method="_on_druid_button_pressed"]
-[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/EngineerButton" to="SpawnPanel" method="_on_engineer_button_pressed"]
-[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/NecromancerButton" to="SpawnPanel" method="_on_necromancer_button_pressed"]
-[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/PeteButton" to="SpawnPanel" method="_on_pete_button_pressed"]
+[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/TestPlayerButton" to="." method="_on_test_player_button_pressed"]

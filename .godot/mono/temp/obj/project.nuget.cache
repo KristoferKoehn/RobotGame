@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zTmJ6Qr4oneXX81Iji6oTlkw+KzjEN1IRY4GACK4mSHinvGRXAdnv3D72UHYJMxsTsYpb6p/eHLwgkRLC68BwA==",
+  "dgSpecHash": "bHtdhkKPHYW85jMhn/dhwQ8S8dZzUNNFhqXxyxa96FEdWCZInCYrvfnkI5I2OyATplkV6Bt5dwTzu/zgjvr73w==",
   "success": true,
-  "projectFilePath": "C:\\USERS\\KRISTOFER\\DOCUMENTS\\ROBOTGAME\\New Game Project.csproj",
+  "projectFilePath": "C:\\Users\\Kristofer\\Documents\\RobotGame\\New Game Project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kristofer\\.nuget\\packages\\godot.sourcegenerators\\4.2.1\\godot.sourcegenerators.4.2.1.nupkg.sha512",
     "C:\\Users\\Kristofer\\.nuget\\packages\\godotsharp\\4.2.1\\godotsharp.4.2.1.nupkg.sha512",

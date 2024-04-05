@@ -25,55 +25,9 @@ public partial class SpawnPanel : Control
         this.Visible = false;
     }
 
-
-    public void _on_mage_button_pressed()
+    public void _on_test_player_button_pressed()
     {
-        currentClass = "Mage";
+        currentClass = "TestPlayer";
         displayLabel.Text = "Playing As: " + currentClass;
     }
-
-    public void _on_barbarian_button_pressed()
-    {
-        currentClass = "Barbarian";
-        displayLabel.Text = "Playing As: " + currentClass;
-    }
-
-    public void _on_warrior_button_pressed()
-    {
-        currentClass = "Warrior";
-        displayLabel.Text = "Playing As: " + currentClass;
-    }
-
-    public void _on_rogue_button_pressed()
-    {
-        currentClass = "Rogue";
-        displayLabel.Text = "Playing As: " + currentClass;
-    }
-
-    public void _on_druid_button_pressed()
-    {
-        currentClass = "Druid";
-        displayLabel.Text = "Playing As: " + currentClass;
-    }
-
-    public void _on_engineer_button_pressed()
-    {
-        currentClass = "Engineer";
-        displayLabel.Text = "Playing As: " + currentClass;
-    }
-
-    public void _on_necromancer_button_pressed()
-    {
-        currentClass = "Necromancer";
-        displayLabel.Text = "Playing As: " + currentClass;
-    }
-
-    public void _on_pete_button_pressed()
-    {
-        currentClass = "Pete";
-        displayLabel.Text = "Playing As: " + currentClass;
-    }
-
-
-
 }

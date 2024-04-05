@@ -1,17 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cj5kbymecdp11"]
+[gd_scene load_steps=7 format=3 uid="uid://cj5kbymecdp11"]
 
 [ext_resource type="Script" path="res://scenes/levels/MainLevel.cs" id="1_i7bbw"]
 [ext_resource type="PackedScene" uid="uid://bmk783fseep4a" path="res://scenes/actorScenes/Controllers/PlayerController.tscn" id="2_5xjtm"]
 [ext_resource type="PackedScene" uid="uid://bjjceeyq3csc3" path="res://scenes/Environment/Skybox.tscn" id="16_l618w"]
 [ext_resource type="PackedScene" uid="uid://cuaikm7d1lbke" path="res://scenes/utility/SpawnArea.tscn" id="17_el60w"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eds52"]
-load_path = "res://.godot/imported/texture_05.png-8e735a0ff26c8a383e8e9d7ae7784fbc.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dvsge"]
-albedo_texture = SubResource("CompressedTexture2D_eds52")
-metallic_specular = 0.0
-uv1_triplanar = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5yvr"]
+albedo_color = Color(0, 0.313726, 0.101961, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a6bmg"]
 resource_local_to_scene = true
@@ -57,7 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 [node name="TerrainModels" type="Node" parent="."]
 
 [node name="floor" type="CSGBox3D" parent="TerrainModels"]
-material_override = SubResource("StandardMaterial3D_dvsge")
+material_override = SubResource("StandardMaterial3D_w5yvr")
 use_collision = true
 size = Vector3(1000, 1, 1000)
 
