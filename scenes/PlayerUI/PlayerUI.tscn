@@ -79,4 +79,4 @@ layout_mode = 2
 text = "TestPlayer"
 
 [connection signal="pressed" from="SpawnPanel/Panel/SpawnButton" to="SpawnPanel" method="_on_spawn_button_pressed"]
-[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/TestPlayerButton" to="." method="_on_test_player_button_pressed"]
+[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/TestPlayerButton" to="SpawnPanel" method="_on_test_player_button_pressed"]

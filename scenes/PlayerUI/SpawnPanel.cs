@@ -19,6 +19,7 @@ public partial class SpawnPanel : Control
     public void _on_spawn_button_pressed()
     {
         spawned = true;
+
         GD.Print("spawn pressed, class: " + currentClass);
         SpawnManager.GetInstance().RpcId(1, "SpawnPlayer", currentClass, playerUI.ActorID);
         Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -26,8 +27,8 @@ public partial class SpawnPanel : Control
     }
 
     public void _on_test_player_button_pressed()
-    {
-        currentClass = "TestPlayer";
+    { 
+        currentClass = "Test";
         displayLabel.Text = "Playing As: " + currentClass;
     }
 }
