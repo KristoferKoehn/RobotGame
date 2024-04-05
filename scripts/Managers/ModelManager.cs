@@ -119,6 +119,7 @@ public partial class ModelManager : Node
         a.PuppetModelReference = ResourceLoader.Load<PackedScene>("res://scenes/actorScenes/Models/" + classname + "Model.tscn", cacheMode: ResourceLoader.CacheMode.Reuse).Instantiate<AbstractModel>();
         GD.Print("puppet model of type: " + classname + " from actor " + ActorID);
         a.PuppetModelReference.SetMultiplayerAuthority(1);
+        a.PuppetModelReference.GetMultiplayerSynchronizer().SetVisibilityFor((int)PeerID, false);
         a.PuppetModelReference.SetTrackingPeerId(PeerID);
         a.PuppetModelReference.SetActorID(ActorID);
 
