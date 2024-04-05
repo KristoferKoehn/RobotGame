@@ -1,12 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "NI4fW1IRt0/hwE/UIm/0magAlotR9ZLFFie2lS4plGQ+/oRBgxoGweAviauM2rLyNt7CFLiCywwIWZWbM7ElfQ==",
+  "dgSpecHash": "2RM4xFZbxaBJn0e99Q4J1amF1X5TbTUCuQH30XzpJE8mNRU18++lvIu3kosi3fZwQYr8JG1q8gAW0pSEL1QkYA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kristofer\\Documents\\RobotGame\\New Game Project.csproj",
+  "projectFilePath": "C:\\Users\\ferna\\Documents\\RobotGame\\New Game Project.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Kristofer\\.nuget\\packages\\godot.sourcegenerators\\4.3.0-dev.5\\godot.sourcegenerators.4.3.0-dev.5.nupkg.sha512",
-    "C:\\Users\\Kristofer\\.nuget\\packages\\godotsharp\\4.3.0-dev.5\\godotsharp.4.3.0-dev.5.nupkg.sha512",
-    "C:\\Users\\Kristofer\\.nuget\\packages\\godotsharpeditor\\4.3.0-dev.5\\godotsharpeditor.4.3.0-dev.5.nupkg.sha512"
+    "C:\\Users\\ferna\\.nuget\\packages\\godot.sourcegenerators\\4.2.1\\godot.sourcegenerators.4.2.1.nupkg.sha512",
+    "C:\\Users\\ferna\\.nuget\\packages\\godotsharp\\4.2.1\\godotsharp.4.2.1.nupkg.sha512",
+    "C:\\Users\\ferna\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\ferna\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.26\\microsoft.netcore.app.runtime.win-x64.6.0.26.nupkg.sha512",
+    "C:\\Users\\ferna\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\ferna\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.26\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.26.nupkg.sha512",
+    "C:\\Users\\ferna\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\ferna\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.26\\microsoft.aspnetcore.app.runtime.win-x64.6.0.26.nupkg.sha512"
   ],
   "logs": []
 }

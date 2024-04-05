@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kristofer\\Documents\\RobotGame\\New Game Project.csproj": {}
+    "C:\\Users\\ferna\\Documents\\RobotGame\\New Game Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kristofer\\Documents\\RobotGame\\New Game Project.csproj": {
+    "C:\\Users\\ferna\\Documents\\RobotGame\\New Game Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kristofer\\Documents\\RobotGame\\New Game Project.csproj",
+        "projectUniqueName": "C:\\Users\\ferna\\Documents\\RobotGame\\New Game Project.csproj",
         "projectName": "New Game Project",
-        "projectPath": "C:\\Users\\Kristofer\\Documents\\RobotGame\\New Game Project.csproj",
-        "packagesPath": "C:\\Users\\Kristofer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kristofer\\Documents\\RobotGame\\.godot\\mono\\temp\\obj\\",
+        "projectPath": "C:\\Users\\ferna\\Documents\\RobotGame\\New Game Project.csproj",
+        "packagesPath": "C:\\Users\\ferna\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ferna\\Documents\\RobotGame\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Users\\Kristofer\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Kristofer\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Users\\Kristofer\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ferna\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,15 +40,11 @@
           "dependencies": {
             "Godot.SourceGenerators": {
               "target": "Package",
-              "version": "[4.3.0-dev.5, )"
+              "version": "[4.2.1, )"
             },
             "GodotSharp": {
               "target": "Package",
-              "version": "[4.3.0-dev.5, )"
-            },
-            "GodotSharpEditor": {
-              "target": "Package",
-              "version": "[4.3.0-dev.5, )"
+              "version": "[4.2.1, )"
             }
           },
           "imports": [
@@ -68,12 +58,43 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[6.0.26, 6.0.26]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }
