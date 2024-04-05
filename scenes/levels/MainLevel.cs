@@ -48,6 +48,7 @@ public partial class MainLevel : Node3D
     //when a puppetmodel enters scene tree
     public void _on_puppet_models_child_entered_tree(Node node)
     {
+        GD.Print("puppet model spawned");
         AbstractModel dm = (AbstractModel)node;
         dm.SimulationPeerId = this.Multiplayer.GetUniqueId();
     }
