@@ -38,6 +38,7 @@ light_energy = 0.2
 [node name="ObjectiveScenes" type="Node" parent="."]
 
 [node name="PuppetSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/actorScenes/Models/TestModel.tscn")
 spawn_path = NodePath("../PuppetModels")
 
 [node name="AbilitySpawner" type="MultiplayerSpawner" parent="."]
