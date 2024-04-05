@@ -24,4 +24,6 @@ public abstract partial class AbstractModel : CharacterBody3D
     [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true, TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
     public abstract void MovePlayerToPosition(Vector3 globalPosition);
 
+	public abstract Node3D GetCastPoint();
+
 }

@@ -35,3 +35,6 @@ replication_config = SubResource("SceneReplicationConfig_qhew4")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationRootNode_hrdvp")
 advance_expression_base_node = NodePath("../AnimationPlayer")
+
+[node name="CastPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.980487, -1.15944)

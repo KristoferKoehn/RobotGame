@@ -91,4 +91,9 @@ public partial class ConcreteModel : AbstractModel
     {
         return AnimationTree;
     }
+
+    public override Node3D GetCastPoint()
+    {
+        return GetNode<Marker3D>("CastPoint");
+    }
 }

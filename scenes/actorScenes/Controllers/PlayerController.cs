@@ -126,7 +126,7 @@ public partial class PlayerController : AbstractController
     {
         this.Model = model;
         this.ModelAnimation = model.GetNode<AnimationPlayer>("AnimationPlayer");
-        this.CastingPoint = this.Model.GetNode<Node3D>("Rig/Skeleton3D/2H_Staff/2H_Staff/Marker3D");
+        this.CastingPoint = this.Model.GetCastPoint();
         Model.AttachController(this);
     }
 
