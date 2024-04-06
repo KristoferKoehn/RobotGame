@@ -27,7 +27,7 @@ properties/3/replication_mode = 1
 script = ExtResource("1_53x8n")
 LegNodes = NodePath("Lightbotlegs")
 BodyNodes = NodePath("@Node3D@49223")
-HandMarker = NodePath("@Node3D@49223/backweapons/spawner")
+HandMarker = NodePath("@Node3D@49223/shouldercuff_l/Skeleton3D/right/hand/spawner")
 BackMarker = NodePath("@Node3D@49223/backweapons/spawner")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
