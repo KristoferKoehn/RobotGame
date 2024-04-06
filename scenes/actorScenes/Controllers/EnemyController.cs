@@ -671,7 +671,7 @@ public partial class EnemyController : AbstractController
     {
 
         GD.Print("Seeing stuff: " + body.Name);
-        ConcreteModel concreteModel = body as ConcreteModel;
+        PlayerModel concreteModel = body as PlayerModel;
         if (concreteModel != null)
         {
             GD.Print("added to potential target list");
@@ -692,7 +692,7 @@ public partial class EnemyController : AbstractController
     public void _on_player_detector_body_exited(Node3D body)
     {
         GD.Print("Seeing stuff: " + body.Name);
-        ConcreteModel concreteModel = body as ConcreteModel;
+        PlayerModel concreteModel = body as PlayerModel;
         if (concreteModel != null)
         {
 
