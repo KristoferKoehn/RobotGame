@@ -180,6 +180,11 @@ public partial class EnemyController : AbstractController
     public override void _PhysicsProcess(double delta)
     {
         if (Model == null) { return; }
+        if (Model.IsQueuedForDeletion()) {
+            QueueFree();
+            return;
+        }
+
 
         if (Model.IsDead) 
         {
