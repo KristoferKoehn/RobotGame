@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj5kbymecdp11"]
+[gd_scene load_steps=8 format=3 uid="uid://cj5kbymecdp11"]
 
 [ext_resource type="Script" path="res://scenes/levels/MainLevel.cs" id="1_i7bbw"]
 [ext_resource type="PackedScene" uid="uid://bmk783fseep4a" path="res://scenes/actorScenes/Controllers/PlayerController.tscn" id="2_5xjtm"]
@@ -11,6 +11,10 @@ albedo_color = Color(0, 0.313726, 0.101961, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_a6bmg"]
 resource_local_to_scene = true
 size = Vector3(9.616, 1, 7.929)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jyenp"]
+resource_local_to_scene = true
+size = Vector3(7.191, 1, 3.479)
 
 [node name="MainLevel" type="Node3D"]
 script = ExtResource("1_i7bbw")
@@ -60,6 +64,11 @@ size = Vector3(1000, 1, 1000)
 [node name="Unaffiliated Spawn" parent="." instance=ExtResource("17_el60w")]
 transform = Transform3D(0.764393, 0, -0.644751, 0, 1, 0, 0.644751, 0, 0.764393, -1.85626, 3.9389, 1.34909)
 Shape = SubResource("BoxShape3D_a6bmg")
+
+[node name="SpawnArea" parent="." instance=ExtResource("17_el60w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.41485, -58.0644)
+Team = 5
+Shape = SubResource("BoxShape3D_jyenp")
 
 [connection signal="child_entered_tree" from="PuppetModels" to="." method="_on_puppet_models_child_entered_tree"]
 [connection signal="child_entered_tree" from="ClientModels" to="." method="_on_client_models_child_entered_tree"]
