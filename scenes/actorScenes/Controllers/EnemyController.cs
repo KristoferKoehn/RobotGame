@@ -103,14 +103,18 @@ public partial class EnemyController : AbstractController
     public bool WaterFlag { get; private set; }
 
     public float BulletSpeed = 60f;
+    private double shootCoolDown = 1f;
     public float WeaponMaxRange = 60f;
     public float WeaponMinRange = 5f;
+    public List<Actor> actorsInDetectionRange = new List<Actor>();
     public List<Actor> quarries = new List<Actor>();
     public Actor ActiveQuarry = null;
     public Vector3 focusPosition;
     [Export] private float personalSpaceRadius = 3.5f;
     public bool BumpedFlag = false;
     RayCast3D lineOfSight;
+    [Export] private float maxFollowDistance = 100f;
+    private bool shootOnCoolDownFlag = false;
 
     public override void _EnterTree()
     {
@@ -126,31 +130,31 @@ public partial class EnemyController : AbstractController
 
         UpperRayCast = GetNode<RayCast3D>("NorthEastRayCasts/UpperRayCast3D");
         lowerRayCast = GetNode<RayCast3D>("NorthEastRayCasts/LowerRayCast3D");
-        NorthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
+        NorthEastRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
         
         UpperRayCast = GetNode<RayCast3D>("EastRayCasts/UpperRayCast3D");
         lowerRayCast = GetNode<RayCast3D>("EastRayCasts/LowerRayCast3D");
-        NorthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
+        EastRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
 
         UpperRayCast = GetNode<RayCast3D>("SouthEastRayCasts/UpperRayCast3D");
         lowerRayCast = GetNode<RayCast3D>("SouthEastRayCasts/LowerRayCast3D");
-        NorthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
+        SouthEastRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
 
         UpperRayCast = GetNode<RayCast3D>("SouthRayCasts/UpperRayCast3D");
         lowerRayCast = GetNode<RayCast3D>("SouthRayCasts/LowerRayCast3D");
-        NorthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
+        SouthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
 
         UpperRayCast = GetNode<RayCast3D>("SouthWestRayCasts/UpperRayCast3D");
         lowerRayCast = GetNode<RayCast3D>("SouthWestRayCasts/LowerRayCast3D");
-        NorthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
+        SouthWestRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
 
         UpperRayCast = GetNode<RayCast3D>("WestRayCasts/UpperRayCast3D");
-        lowerRayCast = GetNode<RayCast3D>("WestEastRayCasts/LowerRayCast3D");
-        NorthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
+        lowerRayCast = GetNode<RayCast3D>("WestRayCasts/LowerRayCast3D");
+        WestRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
 
         UpperRayCast = GetNode<RayCast3D>("NorthWestRayCasts/UpperRayCast3D");
         lowerRayCast = GetNode<RayCast3D>("NorthWestRayCasts/LowerRayCast3D");
-        NorthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
+        NorthWestRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
 
         lineOfSight = GetNode<RayCast3D>("LineOfSight");
 
@@ -166,7 +170,6 @@ public partial class EnemyController : AbstractController
     public void AttachModel(AbstractModel model)
     {
         this.Model = model;
-        this.ModelAnimation = model.GetNode<AnimationPlayer>("AnimationPlayer");
         this.CastingPoint = this.Model.GetCastPoint();
         Model.AttachController(this);
         this.focusPosition = this.Model.GlobalPosition;
@@ -192,14 +195,54 @@ public partial class EnemyController : AbstractController
         this.GlobalPosition = this.Model.GlobalPosition;
 
         // Do logic for updating data about quarries
+        foreach (Actor actor in actorsInDetectionRange)
+        {
+            Vector3 actorRelativeDirection = (actor.ClientModelReference.GlobalPosition - this.GlobalPosition).Normalized() * Basis;
+            if (actorRelativeDirection.Z < 0) // Is in front of us
+            {
+                bool los = checkLineOfSight(actor);
+                if (los)
+                {
+                    quarries.Add(actor);
+                }
+            }
+            else if (actor != ActiveQuarry)
+            {
+                quarries.Remove(actor); // They might not be in here. But why check before removing.
+            }
+        }
 
         // Do logic for setting activeQuarry if any
         if (ActiveQuarry == null && quarries.Count > 0)
         {
-            Actor newQuarry;
+            Actor newQuarry = quarries[0];
+            float nearestDistance = float.MaxValue;
             foreach (Actor quarry in quarries)
             {
-                
+                float distance = (quarry.ClientModelReference.GlobalPosition - this.GlobalPosition).Length();
+                if (distance <= nearestDistance)
+                {
+                    newQuarry = quarry;
+                    nearestDistance = distance;
+                }
+            }
+            ActiveQuarry = newQuarry;
+        }
+
+        // Try to set null
+        if (ActiveQuarry != null)
+        {
+            DeathManager deathManager = DeathManager.GetInstance();
+            bool isDead = deathManager.IsActorDead(ActiveQuarry.ActorID);
+            if (isDead)
+            {
+                ActiveQuarry = null;
+            }
+
+            float activeQuarryDistance = (ActiveQuarry.ClientModelReference.GlobalPosition - this.GlobalPosition).Length(); ;
+            if (activeQuarryDistance > maxFollowDistance)
+            {
+                ActiveQuarry = null;
             }
         }
 
@@ -257,47 +300,38 @@ public partial class EnemyController : AbstractController
             {
                 inputDirection += new Vector2(0, 1); // Backward
             }
-            else // In range, strafe for line of sight.
+            else // In range, strafe for line of sight, shoot if you have it.
             {
-                if (lineOfSight.IsColliding())
+                bool ActiveQuarryLOS = checkLineOfSight(ActiveQuarry);
+                if (ActiveQuarryLOS)
                 {
-                    GodotObject collider = lineOfSight.GetCollider();
-                    // If collider is not active Quarry, strafe
-                    if (collider != (GodotObject)ActiveQuarry.ClientModelReference && collider != (GodotObject)ActiveQuarry.ClientModelReference)
-                    {
-                        Vector3 colliderNormal = lineOfSight.GetCollisionNormal();
-                        Vector2 horizontalColliderNormal = new Vector2(colliderNormal.X, colliderNormal.Z).Normalized();
-                        Vector2 rotateLeft = horizontalColliderNormal.Rotated((float)Math.PI / 4f);
-                        Vector2 rotateRight = horizontalColliderNormal.Rotated(-(float)Math.PI / 4f);
-                        Vector3 lineOfSightVector = lineOfSight.TargetPosition - lineOfSight.GlobalPosition;
-                        Vector2 horizontalLineOfSightVector = new Vector2(lineOfSightVector.X, lineOfSightVector.Z).Normalized();
-                        float strafingRightDotProduct = horizontalLineOfSightVector.Dot(rotateLeft);
-                        float strafingLeftDotProduct = horizontalLineOfSightVector.Dot(rotateRight);
-                        
-                        Vector3 localizedInputDirection;
-                        if (Math.Abs(strafingLeftDotProduct) < Math.Abs(strafingRightDotProduct))
-                        {
-                            localizedInputDirection = new Vector3(rotateRight.X, 0, rotateRight.Y);
-                        }
-                        else
-                        {
-                            localizedInputDirection = new Vector3(rotateLeft.X, 0, rotateLeft.Y);
-                        }
-
-                        localizedInputDirection = localizedInputDirection * Basis;
-                        localizedInputDirection.Y = 0;
-                        localizedInputDirection = localizedInputDirection.Normalized();
-                        inputDirection += new Vector2(localizedInputDirection.X, localizedInputDirection.Z);
-                    }
-                    else // In range with line of sight
-                    {
-                        // If off coolDown
-                        Shoot();
-                    }
+                    Shoot();
                 }
-                else
+                else // Strafe
                 {
-                    //error? It should hit the quarry if it is being updated right.
+                    Vector3 colliderNormal = lineOfSight.GetCollisionNormal();
+                    Vector2 horizontalColliderNormal = new Vector2(colliderNormal.X, colliderNormal.Z).Normalized();
+                    Vector2 rotateLeft = horizontalColliderNormal.Rotated((float)Math.PI / 4f);
+                    Vector2 rotateRight = horizontalColliderNormal.Rotated(-(float)Math.PI / 4f);
+                    Vector3 lineOfSightVector = lineOfSight.TargetPosition - lineOfSight.GlobalPosition;
+                    Vector2 horizontalLineOfSightVector = new Vector2(lineOfSightVector.X, lineOfSightVector.Z).Normalized();
+                    float strafingRightDotProduct = horizontalLineOfSightVector.Dot(rotateLeft);
+                    float strafingLeftDotProduct = horizontalLineOfSightVector.Dot(rotateRight);
+
+                    Vector3 localizedInputDirection;
+                    if (Math.Abs(strafingLeftDotProduct) < Math.Abs(strafingRightDotProduct))
+                    {
+                        localizedInputDirection = new Vector3(rotateRight.X, 0, rotateRight.Y);
+                    }
+                    else
+                    {
+                        localizedInputDirection = new Vector3(rotateLeft.X, 0, rotateLeft.Y);
+                    }
+
+                    localizedInputDirection = localizedInputDirection * Basis;
+                    localizedInputDirection.Y = 0;
+                    localizedInputDirection = localizedInputDirection.Normalized();
+                    inputDirection += new Vector2(localizedInputDirection.X, localizedInputDirection.Z);
                 }
             }
         }
@@ -305,7 +339,6 @@ public partial class EnemyController : AbstractController
         {
             inputDirection += new Vector2(0, -1); // Forward, toward destination
         }
-        
 
         //convert to a vector that points the right way in the world.
         Vector3 transformedInputDirectionVector = Transform.Basis * new Vector3(inputDirection.X, 0, inputDirection.Y).Normalized();
@@ -398,22 +431,22 @@ public partial class EnemyController : AbstractController
             internalForceVector = thrustForceVector;
         }
 
-        // Jump
-        if (Input.IsActionJustPressed("jump_dodge") & Model.IsOnFloor())
-        {
-            internalForceVector += Vector3.Up * jumpForce; // Vertical jump
-            // internalForceVector += (Transform.Basis * new Vector3(inputDirection.X, 1, inputDirection.Y).Normalized()) * jumpForce; // Angled Jump
-        }
+        //// Jump
+        //if (Input.IsActionJustPressed("jump_dodge") & Model.IsOnFloor())
+        //{
+        //    internalForceVector += Vector3.Up * jumpForce; // Vertical jump
+        //    // internalForceVector += (Transform.Basis * new Vector3(inputDirection.X, 1, inputDirection.Y).Normalized()) * jumpForce; // Angled Jump
+        //}
 
-        if (Input.IsActionPressed("movementAbility"))
-        {
-            // Change logic to reflect kit. For now -> mage hover
-            Vector3 hoverForce = Vector3.Up * jetPackForce;
-            // Vector3 hoverForce = (Transform.Basis * new Vector3(inputDirection.X, 1, inputDirection.Y).Normalized()) * jetPackForce; // Force is angled according to input.
-            internalForceVector += hoverForce;
+        //if (Input.IsActionPressed("movementAbility"))
+        //{
+        //    // Change logic to reflect kit. For now -> mage hover
+        //    Vector3 hoverForce = Vector3.Up * jetPackForce;
+        //    // Vector3 hoverForce = (Transform.Basis * new Vector3(inputDirection.X, 1, inputDirection.Y).Normalized()) * jetPackForce; // Force is angled according to input.
+        //    internalForceVector += hoverForce;
             
-            // Do fuel and stuff
-        }
+        //    // Do fuel and stuff
+        //}
 
         buoyantForceVector = Vector3.Up * (-1 * fluidDensity * gravity.Y * modelVolume);
         externalForceVector += buoyantForceVector;
@@ -456,6 +489,29 @@ public partial class EnemyController : AbstractController
         //}
     }
 
+    public bool checkLineOfSight(Actor actor)
+    {
+        lineOfSight.TargetPosition = (actor.ClientModelReference.GlobalPosition - this.GlobalPosition) + new Vector3(0, 4, 0);
+        lineOfSight.ForceRaycastUpdate();
+        
+        if (lineOfSight.IsColliding())
+        {
+            GodotObject collider = lineOfSight.GetCollider();
+            // If collider is not actor
+            if (collider != (GodotObject)actor.ClientModelReference && collider != (GodotObject)actor.ClientModelReference)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        else
+        {
+            // error?
+            return false;
+        }
+    }
+
     public override void ApplyImpulse(Vector3 vec)
     {
         externalForceVector += vec;
@@ -477,9 +533,25 @@ public partial class EnemyController : AbstractController
         }
     }
 
+    public void ShootCoolDownOver()
+    {
+        shootOnCoolDownFlag = false;
+    }
+
     public void Shoot()
     {
-        // TODO: Check cooldown
+        if (shootOnCoolDownFlag)
+        {
+            return;
+        }
+
+        shootOnCoolDownFlag = true;
+
+        Timer t = new Timer();
+        t.Timeout += ShootCoolDownOver;
+        t.Timeout += t.QueueFree;
+        this.AddChild(t);
+        t.Start(shootCoolDown);
 
         // Rough Math
         Vector3 target = ActiveQuarry.ClientModelReference.GlobalPosition + new Vector3(0, 4, 0);
@@ -594,19 +666,33 @@ public partial class EnemyController : AbstractController
 
     public void _on_player_detector_body_entered(Node3D body)
     {  
-        AbstractModel am = body as AbstractModel;
-        if (am != null)
+        ConcreteModel concreteModel = body as ConcreteModel;
+        if (concreteModel != null)
         {
-
+            int actorID = concreteModel.ActorID;
+            Actor actor = ActorManager.GetInstance().GetActor(actorID);
+            if (actor != null)
+            {
+                int teamAffiliation = (int)actor.stats.GetStat(StatType.CTF_TEAM);
+                if (teamAffiliation == 0)
+                {
+                    actorsInDetectionRange.Add(actor);
+                }
+            }
         }
     }
 
     public void _on_player_detector_body_exited(Node3D body)
     {
-        AbstractModel am = body as AbstractModel;
-        if (am != null)
+        ConcreteModel concreteModel = body as ConcreteModel;
+        if (concreteModel != null)
         {
-
+            int actorID = concreteModel.ActorID;
+            Actor actor = ActorManager.GetInstance().GetActor(actorID);
+            if (actor != null)
+            {
+                actorsInDetectionRange.Remove(actor);
+            }
         }
     }
 }
