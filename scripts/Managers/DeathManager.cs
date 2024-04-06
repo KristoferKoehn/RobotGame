@@ -30,7 +30,6 @@ namespace MMOTest.scripts.Managers
         {
             //kill the actor here
             //set dead = true or something. Lock up the controls. dig a grave
-            GD.Print("actor ddddied");
 
             DeadActors.Add(actor.ActorID, actor);
 
@@ -39,11 +38,18 @@ namespace MMOTest.scripts.Managers
             AddChild(at);
             if(actor.ClientModelReference == null)
             {
-                ActorManager.GetInstance().RemoveActor(actor.ActorID);
                 GD.Print("he be dead");
+                ActorManager.GetInstance().RemoveActor(actor.ActorID);
+                if (actor.ClientModelReference != null)
+                {
+                    actor.ClientModelReference.QueueFree();
+                }
+                if (actor.PuppetModelReference != null)
+                {
+                    actor.PuppetModelReference.QueueFree();
+                }
                 return;
             }
-
 
             actor.ClientModelReference.RpcId(actor.ActorMultiplayerAuthority, "AssignDeathState", true);
             at.Start(5);
