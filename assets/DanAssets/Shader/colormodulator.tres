@@ -1,6 +1,7 @@
 [gd_resource type="Shader" format=3 uid="uid://h7uh17nab5ke"]
 
 [resource]
+resource_local_to_scene = true
 code = "// NOTE: Shader automatically converted from Godot Engine 4.0.stable's StandardMaterial3D.
 shader_type spatial;
 

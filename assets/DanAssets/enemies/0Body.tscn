@@ -1,14 +1,43 @@
-[gd_scene load_steps=13 format=3 uid="uid://bohc3bkach0bl"]
+[gd_scene load_steps=18 format=3 uid="uid://bohc3bkach0bl"]
 
 [ext_resource type="PackedScene" uid="uid://b5g6p71d00plp" path="res://assets/DanAssets/CougHacks2024/lightbot/body/Lightbotbody.glb" id="1_jdmfg"]
 [ext_resource type="Script" path="res://assets/DanAssets/enemies/Bodies.cs" id="2_30d4f"]
 [ext_resource type="PackedScene" uid="uid://vujrmf0gwtbt" path="res://assets/DanAssets/enemies/hand/hand.tscn" id="2_wjkvb"]
 [ext_resource type="PackedScene" uid="uid://md48eoprsiud" path="res://assets/DanAssets/enemies/enemyweapons/rifle.tscn" id="3_1so6d"]
+[ext_resource type="Shader" uid="uid://h7uh17nab5ke" path="res://assets/DanAssets/Shader/colormodulator.tres" id="3_5pbbm"]
 [ext_resource type="PackedScene" uid="uid://d3eobturfoxi" path="res://assets/DanAssets/enemies/enemyweapons/missile.tscn" id="3_pgtco"]
+[ext_resource type="Texture2D" uid="uid://cx72t658rb86l" path="res://textured/lightbot/body/DefaultMaterial_baseColor.png" id="4_1da7i"]
 [ext_resource type="PackedScene" uid="uid://dfyi5hy5euy0c" path="res://assets/DanAssets/enemies/enemyweapons/railcannon.tscn" id="4_q01ni"]
 [ext_resource type="PackedScene" uid="uid://dkidd07cf58ji" path="res://assets/DanAssets/enemies/enemyweapons/smg.tscn" id="4_wko5t"]
 [ext_resource type="PackedScene" uid="uid://c2b2p1u8dhpe6" path="res://assets/DanAssets/enemies/enemyweapons/zook.tscn" id="5_4soji"]
+[ext_resource type="Texture2D" uid="uid://rj3t1oih14it" path="res://textured/lightbot/body/DefaultMaterial_occlusionRoughnessMetallic.png" id="5_le0ec"]
 [ext_resource type="PackedScene" uid="uid://b0sjitkukj346" path="res://assets/DanAssets/enemies/enemyweapons/shouldercannon.tscn" id="5_w06ht"]
+[ext_resource type="Texture2D" uid="uid://bs656kyfbqct2" path="res://textured/lightbot/body/DefaultMaterial_normal.png" id="6_5tmpr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aloq0"]
+render_priority = 0
+shader = ExtResource("3_5pbbm")
+shader_parameter/primary = Vector3(0.4, 0.4, 0.4)
+shader_parameter/secondary = Vector3(0.2, 0.2, 0.2)
+shader_parameter/frame = Vector3(0.15, 0.15, 0.15)
+shader_parameter/markone = Vector3(0.9, 0.9, 0.9)
+shader_parameter/marktwo = Vector3(0.7, 0.7, 0.7)
+shader_parameter/light = Vector3(0, 0, 2)
+shader_parameter/albedo = null
+shader_parameter/point_size = null
+shader_parameter/roughness = null
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = null
+shader_parameter/metallic = null
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = null
+shader_parameter/texture_albedo = ExtResource("4_1da7i")
+shader_parameter/texture_metallic = ExtResource("5_le0ec")
+shader_parameter/texture_roughness = ExtResource("5_le0ec")
+shader_parameter/texture_normal = ExtResource("6_5tmpr")
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2uuqm"]
 animation = &"blank"
@@ -41,6 +70,9 @@ bones/4/rotation = Quaternion(7.28768e-08, 8.88007e-08, 0.151443, 0.988466)
 bones/5/rotation = Quaternion(0.33745, 3.46742e-09, -1.28616e-07, 0.941344)
 bones/7/rotation = Quaternion(0, 0.34202, 0, 0.939693)
 bones/10/rotation = Quaternion(0.422618, 2.35199e-14, 1.64574e-07, 0.906308)
+
+[node name="Cube_027" parent="shouldercuff_l/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_aloq0")
 
 [node name="left" type="BoneAttachment3D" parent="shouldercuff_l/Skeleton3D" index="1"]
 transform = Transform3D(-0.95413, 0.231208, -0.190208, -0.281846, -0.907947, 0.310152, -0.100989, 0.349534, 0.931465, 1.97964, -0.0543506, -0.551911)

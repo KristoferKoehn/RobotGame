@@ -1,6 +1,35 @@
-[gd_scene load_steps=9 format=3 uid="uid://bx0nucrkhnhsc"]
+[gd_scene load_steps=14 format=3 uid="uid://bx0nucrkhnhsc"]
 
 [ext_resource type="PackedScene" uid="uid://dwbfsxbyqrtoq" path="res://assets/DanAssets/CougHacks2024/heavybot/legs/Heavybotlegs.glb" id="1_0qrsh"]
+[ext_resource type="Shader" uid="uid://h7uh17nab5ke" path="res://assets/DanAssets/Shader/colormodulator.tres" id="2_f8wh0"]
+[ext_resource type="Texture2D" uid="uid://brtkvb708ekdy" path="res://textured/heavyboy/legs/DefaultMaterial_baseColor.png" id="3_8m5ek"]
+[ext_resource type="Texture2D" uid="uid://dsnqs1ax85joq" path="res://textured/heavyboy/legs/DefaultMaterial_occlusionRoughnessMetallic.png" id="4_0xee8"]
+[ext_resource type="Texture2D" uid="uid://c2ukg4ccu5gov" path="res://textured/heavyboy/legs/DefaultMaterial_normal.png" id="5_2lm8c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7530"]
+render_priority = 0
+shader = ExtResource("2_f8wh0")
+shader_parameter/primary = Vector3(0.4, 0.4, 0.4)
+shader_parameter/secondary = Vector3(0.2, 0.2, 0.2)
+shader_parameter/frame = Vector3(0.15, 0.15, 0.15)
+shader_parameter/markone = Vector3(0.9, 0.9, 0.9)
+shader_parameter/marktwo = Vector3(0.7, 0.7, 0.7)
+shader_parameter/light = Vector3(0, 0, 2)
+shader_parameter/albedo = null
+shader_parameter/point_size = null
+shader_parameter/roughness = null
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = null
+shader_parameter/metallic = null
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = null
+shader_parameter/texture_albedo = ExtResource("3_8m5ek")
+shader_parameter/texture_metallic = ExtResource("4_0xee8")
+shader_parameter/texture_roughness = ExtResource("4_0xee8")
+shader_parameter/texture_normal = ExtResource("5_2lm8c")
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5fn27"]
 animation = &"idle"
@@ -54,6 +83,9 @@ bones/10/rotation = Quaternion(-0.5, 0.5, 0.5, -0.5)
 bones/11/position = Vector3(-1.34443, 0.55189, -0.0201557)
 bones/11/rotation = Quaternion(0.471905, -0.471905, 0.526598, -0.526598)
 bones/12/position = Vector3(-1.26375, 2.55977, 0.391015)
+
+[node name="bot_004" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_m7530")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
 transform = Transform3D(3.57628e-07, 0, -1, 0, -1, 0, -1, 0, -3.57628e-07, 0, 4.6489, 0.00203976)

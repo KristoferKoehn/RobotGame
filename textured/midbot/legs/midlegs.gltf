@@ -1,0 +1,333 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 2340,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1234,
+      "max": [
+        1.74578738212585,
+        4.97326469421387,
+        0.932411313056946
+      ],
+      "min": [
+        -1.74578738212585,
+        0.00499320030212402,
+        -1.04615390300751
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1234,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 1234,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 1234,
+      "type": "VEC2"
+    }
+  ],
+  "asset": {
+    "generator": "Adobe Substance 3D Painter 9.1.2",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 9360,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 14808,
+      "byteOffset": 9360,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 14808,
+      "byteOffset": 24168,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 19744,
+      "byteOffset": 38976,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 9872,
+      "byteOffset": 58720,
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 68592,
+      "uri": "midlegs.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "DefaultMaterial_baseColor.png"
+    },
+    {
+      "uri": "DefaultMaterial_occlusionRoughnessMetallic.png"
+    },
+    {
+      "uri": "DefaultMaterial_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "alphaMode": "OPAQUE",
+      "name": "DefaultMaterial",
+      "normalTexture": {
+        "index": 2
+      },
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Cube.041",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 2,
+            "POSITION": 1,
+            "TANGENT": 3,
+            "TEXCOORD_0": 4
+          },
+          "indices": 0,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1,
+        3
+      ],
+      "name": "Armature"
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "Cube.036"
+    },
+    {
+      "mesh": 0,
+      "name": "Cube.041"
+    },
+    {
+      "children": [
+        4,
+        7
+      ],
+      "name": "core",
+      "rotation": [
+        0.70710688829422,
+        0.0,
+        -0.707106649875641,
+        0.0
+      ],
+      "scale": [
+        0.999999940395355,
+        1.0,
+        0.999999940395355
+      ],
+      "translation": [
+        0.0,
+        4.57729482650757,
+        0.0
+      ]
+    },
+    {
+      "children": [
+        5
+      ],
+      "name": "hip.l",
+      "rotation": [
+        -0.707106709480286,
+        -3.10482249687993e-07,
+        2.57097127587258e-07,
+        0.707106828689575
+      ],
+      "scale": [
+        1.0,
+        0.99999988079071,
+        0.99999988079071
+      ],
+      "translation": [
+        0.0,
+        0.583873987197876,
+        0.0
+      ]
+    },
+    {
+      "children": [
+        6
+      ],
+      "name": "thigh.l",
+      "rotation": [
+        0.706443727016449,
+        -0.0306134354323149,
+        0.0306131467223167,
+        0.706443846225739
+      ],
+      "scale": [
+        1.0,
+        1.00000011920929,
+        1.00000011920929
+      ],
+      "translation": [
+        0.0,
+        0.930576801300049,
+        -2.38418579101562e-07
+      ]
+    },
+    {
+      "name": "leg.l",
+      "rotation": [
+        -2.67789932451024e-08,
+        7.68231434022937e-09,
+        -0.0652262046933174,
+        0.99787050485611
+      ],
+      "scale": [
+        1.0,
+        0.999999940395355,
+        1.0
+      ],
+      "translation": [
+        2.58372949701879e-08,
+        1.16326725482941,
+        2.53696512686474e-08
+      ]
+    },
+    {
+      "children": [
+        8
+      ],
+      "name": "hip.r",
+      "rotation": [
+        -1.06770158936342e-07,
+        0.70710676908493,
+        0.70710676908493,
+        -5.33850830208848e-08
+      ],
+      "scale": [
+        0.99999988079071,
+        0.999999642372131,
+        0.99999988079071
+      ],
+      "translation": [
+        0.0,
+        0.583873987197876,
+        0.0
+      ]
+    },
+    {
+      "children": [
+        9
+      ],
+      "name": "thigh.r",
+      "rotation": [
+        0.706443846225739,
+        0.0306136421859264,
+        -0.0306133404374123,
+        0.706443727016449
+      ],
+      "scale": [
+        1.0,
+        1.00000011920929,
+        1.0
+      ],
+      "translation": [
+        8.470329472543e-22,
+        0.930576801300049,
+        -2.38418579101562e-07
+      ]
+    },
+    {
+      "name": "leg.r",
+      "rotation": [
+        -2.73349325397021e-08,
+        -6.48141096348809e-09,
+        0.065226212143898,
+        0.99787050485611
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        0.999999940395355
+      ],
+      "translation": [
+        -3.09415781885036e-08,
+        1.1632673740387,
+        8.74960477403874e-08
+      ]
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9985,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}

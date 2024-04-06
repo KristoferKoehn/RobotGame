@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://5lx20h0btqmo"
+path.s3tc="res://.godot/imported/midlegs_1.png-1c2239310023cbc6b1f47c5b27294667.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "8b98d2d404e9f05c4fecfc50caaab574"
+}
+
+[deps]
+
+source_file="res://textured/midbot/legs/midlegs_1.png"
+dest_files=["res://.godot/imported/midlegs_1.png-1c2239310023cbc6b1f47c5b27294667.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=8
+roughness/src_normal="res://textured/midbot/legs/midlegs_2.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

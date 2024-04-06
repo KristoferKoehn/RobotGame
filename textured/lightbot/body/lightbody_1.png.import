@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bmn5kphldk8d5"
+path.s3tc="res://.godot/imported/lightbody_1.png-e2dfc27c9d7d3fee6c68ffefe1eea8d0.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "3af2b1e66b2d7a34d9ada66a1a69be91"
+}
+
+[deps]
+
+source_file="res://textured/lightbot/body/lightbody_1.png"
+dest_files=["res://.godot/imported/lightbody_1.png-e2dfc27c9d7d3fee6c68ffefe1eea8d0.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=8
+roughness/src_normal="res://textured/lightbot/body/lightbody_2.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
