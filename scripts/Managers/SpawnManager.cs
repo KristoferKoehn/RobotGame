@@ -197,11 +197,11 @@ namespace MMOTest.scripts.Managers
             StatManager.GetInstance().AssignStatBlock(sb.SerializeStatBlock(), ActorID);
 
             Vector3 spawnPosition = GetValidSpawnPosition((Teams)statsDict[StatType.CTF_TEAM]);
-            em.GlobalPosition = spawnPosition;
 
             GD.Print(spawnPosition);
 
             SceneOrganizerManager.GetInstance().CurrentLevel.GetNode<Node>("PuppetModels").AddChild(em,forceReadableName:true);
+            em.GlobalPosition = spawnPosition;
 
         }
 
