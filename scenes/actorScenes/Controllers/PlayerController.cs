@@ -53,7 +53,7 @@ public partial class PlayerController : AbstractController
     [Export] private float jumpHeight = 3f; // 3 meters is way higher than people can jump but 0.3 feels bad because you cant pick up your legs to clear a fence.
     [Export] private float maxSprintSpeed = 40f; // 10 meters a second. Ballpark of olympic athletes in 200m races.
     [Export] private float maxSwimSpeed = 2.2f; // 2.2 Meters per second. https://www.wired.com/2012/08/olympics-physics-swimming/
-    [Export] private float maxFlySpeed = 7f; //Terminal velocity?  // People cant fly. Should be zero, but having it at 10 helps a bit.The air thrust force needs to be calculated differently. Drag doesnt make sense.
+    [Export] private float maxFlySpeed = 40f; //Terminal velocity?  // People cant fly. Should be zero, but having it at 10 helps a bit.The air thrust force needs to be calculated differently. Drag doesnt make sense.
     [Export] private float angleOfAttack = (float)(Math.PI / 4f); // How much you glide while falling;
 
     // These are derived from the exported values and are actually used in calculations

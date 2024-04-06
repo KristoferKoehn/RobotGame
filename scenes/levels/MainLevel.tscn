@@ -108,6 +108,7 @@ Team = 5
 Shape = SubResource("BoxShape3D_m4rr2")
 
 [node name="MAP" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.06053, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MAP"]
 transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, -14.3081, -0.215704, -36.3467)

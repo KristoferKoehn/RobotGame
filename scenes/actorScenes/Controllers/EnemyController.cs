@@ -175,6 +175,7 @@ public partial class EnemyController : AbstractController
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+
     }
 
     public override void _PhysicsProcess(double delta)
@@ -265,7 +266,7 @@ public partial class EnemyController : AbstractController
         }
 
         // Rotate the model to look at focus position
-        Transform3D tr = Model.Transform.LookingAt(focusPosition);
+        Transform3D tr = Model.Transform.LookingAt(-focusPosition);
         this.Model.Transform = this.Model.Transform.InterpolateWith(tr, turnSpeed * (float)delta);
         this.Transform = this.Model.Transform;
 
@@ -493,7 +494,7 @@ public partial class EnemyController : AbstractController
 
     public bool checkLineOfSight(Actor actor)
     {
-        lineOfSight.TargetPosition = (actor.ClientModelReference.GlobalPosition - this.GlobalPosition) + new Vector3(0, 4, 0);
+        lineOfSight.TargetPosition = ToLocal(actor.ClientModelReference.GlobalPosition) + new Vector3(0, 4, 0);
         lineOfSight.ForceRaycastUpdate();
         
         if (lineOfSight.IsColliding())
