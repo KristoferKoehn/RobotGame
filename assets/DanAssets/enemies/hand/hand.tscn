@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://vujrmf0gwtbt"]
+
+[ext_resource type="PackedScene" uid="uid://dw3x2o4tdqp1o" path="res://assets/DanAssets/enemies/hand/hand.glb" id="1_f425i"]
+
+[node name="hand" instance=ExtResource("1_f425i")]

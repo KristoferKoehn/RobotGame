@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkidd07cf58ji"]
+
+[ext_resource type="PackedScene" uid="uid://bf0l3hjghnfrp" path="res://assets/DanAssets/enemies/smg/smg.glb" id="1_2wbhv"]
+
+[node name="smg" instance=ExtResource("1_2wbhv")]

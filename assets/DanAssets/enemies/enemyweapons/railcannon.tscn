@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfyi5hy5euy0c"]
+
+[ext_resource type="PackedScene" uid="uid://cm7vguqj4hnef" path="res://assets/DanAssets/enemies/railcannon/railcannon.glb" id="1_lcb0e"]
+
+[node name="railcannon" instance=ExtResource("1_lcb0e")]

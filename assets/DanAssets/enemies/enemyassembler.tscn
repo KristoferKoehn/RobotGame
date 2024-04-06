@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://1cq56er70qj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3qvgd"]
+radius = 2.09071
+height = 6.72258
+
+[node name="enemyassembler" type="CharacterBody3D"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.37202, 0)
+shape = SubResource("CapsuleShape3D_3qvgd")

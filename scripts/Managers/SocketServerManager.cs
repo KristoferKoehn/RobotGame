@@ -88,7 +88,7 @@ namespace Managers.SocketServerManager
                 {
                     if(a.PuppetModelReference != null)
                     {
-                        sb.Append(a.PuppetModelReference.GlobalPosition.X + "," + a.PuppetModelReference.GlobalPosition.Z+"|");
+                        sb.Append((int)a.PuppetModelReference.GlobalPosition.X + "," + (int)a.PuppetModelReference.GlobalPosition.Z+"|");
                     }
                 }
 

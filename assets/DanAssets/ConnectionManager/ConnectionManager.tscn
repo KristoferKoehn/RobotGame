@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://lw4uyge7dkja"]
+
+[ext_resource type="Script" path="res://assets/DanAssets/ConnectionManager/connection_manager.gd" id="1_hu2sf"]
+
+[node name="ConnectionManager" type="Node"]
+script = ExtResource("1_hu2sf")

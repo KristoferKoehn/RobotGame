@@ -269,7 +269,7 @@ public partial class PlayerController : AbstractController
 
         // Update locomotion animation with the new button key inputs
         locomotionBlendPositionVector = locomotionBlendPositionVector.MoveToward(inputDirection, locomotionBlendPositionSpeed * (float)delta);
-        this.Model.GetAnimationTree().Set("parameters/Blended/Locomotion/blend_position", new Vector2(locomotionBlendPositionVector.X, -Math.Abs(locomotionBlendPositionVector.Y)));
+        this.Model.GetAnimationTree().Set("parameters/movement/blend_position", new Vector2(locomotionBlendPositionVector.X, -Math.Abs(locomotionBlendPositionVector.Y)));
         // Rotate the model to reflect the change
         if (transformedInputDirectionVector != Vector3.Zero)
         {

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://md48eoprsiud"]
+
+[ext_resource type="PackedScene" uid="uid://bjrwuajujdgg5" path="res://assets/DanAssets/enemies/rifle/rifle.glb" id="1_o2rx5"]
+
+[node name="rifle" instance=ExtResource("1_o2rx5")]

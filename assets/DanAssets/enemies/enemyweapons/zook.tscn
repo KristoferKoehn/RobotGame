@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2b2p1u8dhpe6"]
+
+[ext_resource type="PackedScene" uid="uid://bcfoajlddvpll" path="res://assets/DanAssets/enemies/zook/zook.glb" id="1_bb33x"]
+
+[node name="zook" instance=ExtResource("1_bb33x")]

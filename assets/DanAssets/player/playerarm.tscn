@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca8g4fl1hup64"]
+
+[ext_resource type="PackedScene" uid="uid://dxsng1wy1mr4d" path="res://assets/DanAssets/CougHacks2024/usableassets/player/arm/playerarm.glb" id="1_1fsap"]
+
+[node name="playerarm" instance=ExtResource("1_1fsap")]

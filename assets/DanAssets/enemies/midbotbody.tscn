@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://dyw4417f5g471"]
+
+[ext_resource type="PackedScene" uid="uid://8encv45bayfk" path="res://assets/DanAssets/CougHacks2024/midbot/body/Midbotbody.glb" id="1_6ol85"]
+[ext_resource type="PackedScene" uid="uid://vujrmf0gwtbt" path="res://assets/DanAssets/enemies/hand/hand.tscn" id="2_60ni8"]
+[ext_resource type="Script" path="res://assets/DanAssets/enemies/lightbotbody.gd" id="2_e6m4f"]
+[ext_resource type="PackedScene" uid="uid://md48eoprsiud" path="res://assets/DanAssets/enemies/enemyweapons/rifle.tscn" id="3_6pvmc"]
+[ext_resource type="PackedScene" uid="uid://d3eobturfoxi" path="res://assets/DanAssets/enemies/enemyweapons/missile.tscn" id="3_pj3ky"]
+[ext_resource type="PackedScene" uid="uid://dkidd07cf58ji" path="res://assets/DanAssets/enemies/enemyweapons/smg.tscn" id="4_iae40"]
+[ext_resource type="PackedScene" uid="uid://dfyi5hy5euy0c" path="res://assets/DanAssets/enemies/enemyweapons/railcannon.tscn" id="4_mr4wq"]
+[ext_resource type="PackedScene" uid="uid://c2b2p1u8dhpe6" path="res://assets/DanAssets/enemies/enemyweapons/zook.tscn" id="5_os5ew"]
+[ext_resource type="PackedScene" uid="uid://b0sjitkukj346" path="res://assets/DanAssets/enemies/enemyweapons/shouldercannon.tscn" id="5_quii6"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2uuqm"]
+animation = &"blank"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c7vj2"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_eqe5w"]
+graph_offset = Vector2(-586.248, 56.7355)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_c7vj2")
+nodes/Animation/position = Vector2(-60, 200)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_2uuqm")
+"nodes/Animation 2/position" = Vector2(-240, 140)
+node_connections = [&"output", 0, &"Animation"]
+
+[node name="Midbotbody" instance=ExtResource("1_6ol85")]
+script = ExtResource("2_e6m4f")
+
+[node name="Skeleton3D" parent="shouldercuff_l" index="0"]
+bones/1/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+bones/2/rotation = Quaternion(0, 0.149323, 0, 0.988788)
+bones/4/rotation = Quaternion(7.51389e-08, 8.52661e-08, 0.1331, 0.991103)
+bones/5/rotation = Quaternion(0.238617, 3.24726e-09, -9.32652e-08, 0.971114)
+bones/6/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
+bones/7/rotation = Quaternion(0, 0.300706, 0, 0.953717)
+bones/10/rotation = Quaternion(0.461749, -1.60211e-14, 1.79812e-07, 0.887011)
+
+[node name="left" type="BoneAttachment3D" parent="shouldercuff_l/Skeleton3D" index="1"]
+transform = Transform3D(-0.964569, 0.233788, -0.122272, -0.252066, -0.953466, 0.165422, -0.0779087, 0.190382, 0.978614, 1.9583, -0.0722364, -0.518075)
+bone_name = "forearm.l"
+bone_idx = 5
+
+[node name="hand" parent="shouldercuff_l/Skeleton3D/left" index="0" instance=ExtResource("2_60ni8")]
+transform = Transform3D(-1, 9.60093e-22, 0, 9.60093e-22, 1, 0, 0, 0, 1, 0, 2.02004, 0.0409253)
+
+[node name="right" type="BoneAttachment3D" parent="shouldercuff_l/Skeleton3D" index="2"]
+transform = Transform3D(-1, -5.68434e-14, -3.89414e-07, -3.89414e-07, 2.08616e-07, 1, 5.68434e-14, 1, -2.08616e-07, -1.8, 0.0269256, 0.237514)
+bone_name = "forearm.r"
+bone_idx = 10
+
+[node name="hand" parent="shouldercuff_l/Skeleton3D/right" index="0" instance=ExtResource("2_60ni8")]
+transform = Transform3D(1, 0, 0, 9.60093e-22, 1, 0, 0, 0, 1, -0.005301, 2.03574, -8.9407e-08)
+
+[node name="rifle" parent="shouldercuff_l/Skeleton3D/right/hand" index="2" instance=ExtResource("3_6pvmc")]
+transform = Transform3D(-1, -4.76837e-07, -3.89414e-07, -3.89414e-07, -4.37113e-08, 1, -4.76837e-07, 1, 4.37111e-08, -1.19209e-07, 0.000548601, 0.216924)
+visible = false
+
+[node name="smg" parent="shouldercuff_l/Skeleton3D/right/hand" index="3" instance=ExtResource("4_iae40")]
+transform = Transform3D(-1, -4.76837e-07, -3.89414e-07, -3.89414e-07, 4.97381e-14, 1, -4.76837e-07, 1, -2.63847e-13, -1.19209e-07, 0.429624, 0.351744)
+visible = false
+
+[node name="zook" parent="shouldercuff_l/Skeleton3D/right/hand" index="4" instance=ExtResource("5_os5ew")]
+transform = Transform3D(-1, -4.76837e-07, -3.89414e-07, -3.89414e-07, -4.37113e-08, 1, -4.76837e-07, 1, 4.37111e-08, -1.19209e-07, -0.0983248, 0.227211)
+visible = false
+
+[node name="spawner" type="Node3D" parent="shouldercuff_l/Skeleton3D/right/hand" index="5"]
+transform = Transform3D(1, 0, 0, 9.60093e-22, 1, 0, 0, 0, 1, -2.38419e-07, 3.27184, 0.6052)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_eqe5w")
+advance_expression_base_node = NodePath("../AnimationPlayer")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="backweapons" type="Node3D" parent="AnimationTree" index="0"]
+
+[node name="missile" parent="AnimationTree/backweapons" index="0" instance=ExtResource("3_pj3ky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84306, 1.74903, -1.6145)
+visible = false
+
+[node name="railcannon" parent="AnimationTree/backweapons" index="1" instance=ExtResource("4_mr4wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02417, 2.01007, -0.818121)
+visible = false
+
+[node name="shouldercannon" parent="AnimationTree/backweapons" index="2" instance=ExtResource("5_quii6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.82989, 1.98191, -0.871335)
+visible = false
+
+[node name="spawner" type="Node3D" parent="AnimationTree/backweapons" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90666, 2.59638, 0.306606)

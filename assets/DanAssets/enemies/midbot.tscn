@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbs2h0cdax3g5"]
+
+[ext_resource type="PackedScene" uid="uid://co5ku2m4phxy8" path="res://assets/DanAssets/CougHacks2024/midbot/legs/Midbotlegs.glb" id="1_at8o0"]
+[ext_resource type="Script" path="res://assets/DanAssets/enemies/midbot.gd" id="2_st5fa"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5fn27"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pl0ax"]
+animation = &"forward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uxgu2"]
+animation = &"backward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4m4i5"]
+animation = &"left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5xern"]
+animation = &"right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_olqpn"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_5fn27")
+blend_point_0/pos = Vector2(0, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_pl0ax")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_uxgu2")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_4m4i5")
+blend_point_3/pos = Vector2(-1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_5xern")
+blend_point_4/pos = Vector2(1, 0)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_335q2"]
+graph_offset = Vector2(-11.6, 81.5)
+nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_olqpn")
+nodes/BlendSpace2D/position = Vector2(640, 140)
+nodes/output/position = Vector2(920, 140)
+node_connections = [&"output", 0, &"BlendSpace2D"]
+
+[node name="Midbotlegs" instance=ExtResource("1_at8o0")]
+script = ExtResource("2_st5fa")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(0, 4.49537, 0.00649883)
+bones/2/rotation = Quaternion(0.673963, -0.146091, 0.0929155, 0.718191)
+bones/3/rotation = Quaternion(-9.1577e-08, 3.43281e-09, -0.226809, 0.973939)
+bones/4/rotation = Quaternion(0.00714676, -0.0290731, 0.746018, 0.665253)
+bones/5/rotation = Quaternion(-1.0677e-07, 0.707107, 0.707107, -5.33851e-08)
+bones/6/rotation = Quaternion(0.673963, 0.146092, -0.092916, 0.71819)
+bones/7/rotation = Quaternion(-9.2581e-08, -8.61571e-09, 0.22681, 0.973939)
+bones/8/rotation = Quaternion(0.00714691, 0.0290728, -0.746018, 0.665252)
+bones/9/position = Vector3(1.1042, 0.545266, 0.117906)
+bones/9/rotation = Quaternion(-0.469455, -0.469455, 0.528784, 0.528783)
+bones/10/position = Vector3(1.02306, 2.83451, 0.409153)
+bones/10/rotation = Quaternion(-0.5, 0.5, 0.5, -0.5)
+bones/11/position = Vector3(-1.1042, 0.545266, 0.117906)
+bones/11/rotation = Quaternion(0.469455, -0.469455, 0.528784, -0.528783)
+bones/12/position = Vector3(-1.02306, 2.83451, 0.409153)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(3.57628e-07, 0, -1, 0, -1, 0, -1, 0, -3.57628e-07, 0, 4.49537, 0.00649883)
+bone_name = "core"
+bone_idx = 0
+
+[node name="mark" type="Node3D" parent="Armature/Skeleton3D/BoneAttachment3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125349, -0.191949, 4.48284e-08)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
+tree_root = SubResource("AnimationNodeBlendTree_335q2")
+advance_expression_base_node = NodePath("../AnimationPlayer")
+anim_player = NodePath("../AnimationPlayer")
+parameters/BlendSpace2D/blend_position = Vector2(0, 0.0132158)
