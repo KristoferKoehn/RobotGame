@@ -142,7 +142,7 @@ public partial class EnemyController : AbstractController
         SouthWestRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
 
         UpperRayCast = GetNode<RayCast3D>("WestRayCasts/UpperRayCast3D");
-        lowerRayCast = GetNode<RayCast3D>("WestEastRayCasts/LowerRayCast3D");
+        lowerRayCast = GetNode<RayCast3D>("WestRayCasts/LowerRayCast3D");
         WestRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
 
         UpperRayCast = GetNode<RayCast3D>("NorthWestRayCasts/UpperRayCast3D");
