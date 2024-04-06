@@ -143,5 +143,63 @@ namespace MMOTest.scripts.Managers
         //tell client it has new model - connect controller
         //put player in spawn place
 
+
+        public void SpawnEnemy(string values)
+        {
+            if(Multiplayer.GetUniqueId() > 1)
+            {
+                GD.Print("Wrong authority on spawn");
+                return;
+            }
+
+            EnemyModel em = ResourceLoader.Load<PackedScene>("res://scenes/actorScenes/Models/EnemyModel.tscn").Instantiate<EnemyModel>();
+
+            string[] vals = values.Split(',');
+
+            em.Leg = int.Parse(vals[0]);
+            em.Body = int.Parse(vals[1]);
+            em.BackWeapon = int.Parse(vals[2]);
+            em.HandWeapon = int.Parse(vals[3]);
+
+
+            Actor a = new Actor();
+            
+
+            StatBlock sb = new StatBlock();
+            Dictionary<StatType, float> statsDict;
+            statsDict = new()
+            {
+                [StatType.HEALTH] = 100,
+                [StatType.MAX_HEALTH] = 100,
+                [StatType.MANA] = 100,
+                [StatType.MAGIC_RESIST] = 13,
+                [StatType.ARMOR] = 11,
+                [StatType.ABILITY_POINTS] = 14,
+                [StatType.CASTING_SPEED] = 12,
+                [StatType.PHYSICAL_DAMAGE] = 15,
+                [StatType.CTF_TEAM] = (int)Teams.PURPLE_TEAM,
+            };
+            sb.SetStatBlock(statsDict);
+
+            a.stats = sb;
+            a.PuppetModelReference = em;
+
+            RandomNumberGenerator rng = new RandomNumberGenerator();
+            int ActorID = (int)rng.Randi();
+            while (ActorManager.GetInstance().GetActor(ActorID) != null)
+            {
+                ActorID = (int)rng.Randi();
+            }
+
+
+            ActorManager.GetInstance().actors[(long)1] = a;
+
+            Vector3 spawnPosition = GetValidSpawnPosition((Teams)statsDict[StatType.CTF_TEAM]);
+
+
+            SceneOrganizerManager.GetInstance().CurrentLevel.GetNode<Node>("PuppetModels").AddChild(em);
+
+        }
+
     }
 }

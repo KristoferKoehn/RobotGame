@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bohc3bkach0bl"]
 
 [ext_resource type="PackedScene" uid="uid://b5g6p71d00plp" path="res://assets/DanAssets/CougHacks2024/lightbot/body/Lightbotbody.glb" id="1_jdmfg"]
-[ext_resource type="Script" path="res://assets/DanAssets/enemies/lightbotbody.gd" id="2_ec711"]
+[ext_resource type="Script" path="res://assets/DanAssets/enemies/Bodies.cs" id="2_30d4f"]
 [ext_resource type="PackedScene" uid="uid://vujrmf0gwtbt" path="res://assets/DanAssets/enemies/hand/hand.tscn" id="2_wjkvb"]
 [ext_resource type="PackedScene" uid="uid://md48eoprsiud" path="res://assets/DanAssets/enemies/enemyweapons/rifle.tscn" id="3_1so6d"]
 [ext_resource type="PackedScene" uid="uid://d3eobturfoxi" path="res://assets/DanAssets/enemies/enemyweapons/missile.tscn" id="3_pgtco"]
@@ -24,11 +24,26 @@ nodes/Animation/position = Vector2(-60, 220)
 "nodes/Animation 2/position" = Vector2(-240, 140)
 node_connections = [&"output", 0, &"Animation"]
 
-[node name="Lightbotbody" instance=ExtResource("1_jdmfg")]
-script = ExtResource("2_ec711")
+[node name="Lightbotbody" node_paths=PackedStringArray("Rifle", "Smg", "Bazooka", "Missile", "ShoulderCannon", "RailCannon", "Handspawner", "Backspawner") instance=ExtResource("1_jdmfg")]
+script = ExtResource("2_30d4f")
+Rifle = NodePath("shouldercuff_l/Skeleton3D/right/hand/rifle")
+Smg = NodePath("shouldercuff_l/Skeleton3D/right/hand/smg")
+Bazooka = NodePath("shouldercuff_l/Skeleton3D/right/hand/zook")
+Missile = NodePath("backweapons/missile")
+ShoulderCannon = NodePath("backweapons/shouldercannon")
+RailCannon = NodePath("backweapons/railcannon")
+Handspawner = NodePath("shouldercuff_l/Skeleton3D/right/hand/spawner")
+Backspawner = NodePath("backweapons/spawner")
+
+[node name="Skeleton3D" parent="shouldercuff_l" index="0"]
+bones/2/rotation = Quaternion(0, 0.171184, 0, 0.985239)
+bones/4/rotation = Quaternion(7.28768e-08, 8.88007e-08, 0.151443, 0.988466)
+bones/5/rotation = Quaternion(0.33745, 3.46742e-09, -1.28616e-07, 0.941344)
+bones/7/rotation = Quaternion(0, 0.34202, 0, 0.939693)
+bones/10/rotation = Quaternion(0.422618, 2.35199e-14, 1.64574e-07, 0.906308)
 
 [node name="left" type="BoneAttachment3D" parent="shouldercuff_l/Skeleton3D" index="1"]
-transform = Transform3D(-1, 1.25271e-27, 3.89414e-07, 4.26004e-14, -1, 4.9738e-14, 3.89414e-07, 2.13163e-14, 1, 1.8, -0.13165, -0.265423)
+transform = Transform3D(-0.95413, 0.231208, -0.190208, -0.281846, -0.907947, 0.310152, -0.100989, 0.349534, 0.931465, 1.97964, -0.0543506, -0.551911)
 bone_name = "forearm.l"
 bone_idx = 5
 
@@ -36,7 +51,7 @@ bone_idx = 5
 transform = Transform3D(-1, 9.60093e-22, 0, 9.60093e-22, 1, 0, 0, 0, 1, 0.0952572, 1.6555, -1.49012e-07)
 
 [node name="right" type="BoneAttachment3D" parent="shouldercuff_l/Skeleton3D" index="2"]
-transform = Transform3D(-1, -1.25271e-27, -3.89414e-07, -4.26004e-14, -1, 4.9738e-14, -3.89414e-07, 2.13163e-14, 1, -1.8, -0.13165, -0.265423)
+transform = Transform3D(-1, -1.13687e-13, -3.89414e-07, -3.89414e-07, 2.98023e-07, 1, 1.13687e-13, 1, -2.98023e-07, -1.8, 0.0734927, 0.298202)
 bone_name = "forearm.r"
 bone_idx = 10
 
@@ -55,7 +70,7 @@ visible = false
 transform = Transform3D(-1, -4.76837e-07, -3.89414e-07, -3.89414e-07, -4.37113e-08, 1, -4.76837e-07, 1, 4.37111e-08, -1.19209e-07, -0.0988734, 0.248371)
 visible = false
 
-[node name="spawner" type="Node3D" parent="shouldercuff_l/Skeleton3D/right/hand" index="5"]
+[node name="spawner" type="Marker3D" parent="shouldercuff_l/Skeleton3D/right/hand" index="5"]
 transform = Transform3D(1, 0, 0, 9.60093e-22, 1, 0, 0, 0, 1, -2.38419e-07, 3.27184, 0.6052)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
@@ -80,5 +95,5 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43117, 1.98191, -0.871335)
 visible = false
 
-[node name="spawner" type="Node3D" parent="backweapons" index="3"]
+[node name="spawner" type="Marker3D" parent="backweapons" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90666, 2.59638, 0.306606)

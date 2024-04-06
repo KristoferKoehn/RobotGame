@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgtvrq8pfalxx"]
+[gd_scene load_steps=9 format=3 uid="uid://dgtvrq8pfalxx"]
 
 [ext_resource type="PackedScene" uid="uid://km57lwwb8um3" path="res://assets/DanAssets/CougHacks2024/lightbot/legs/Lightbotlegs.glb" id="1_j28r4"]
-[ext_resource type="Script" path="res://assets/DanAssets/enemies/legs.gd" id="2_cjm7x"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oule1"]
 animation = &"idle"
@@ -38,7 +37,6 @@ nodes/output/position = Vector2(920, 140)
 node_connections = [&"output", 0, &"BlendSpace2D"]
 
 [node name="Lightbotlegs" instance=ExtResource("1_j28r4")]
-script = ExtResource("2_cjm7x")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(0, 3.85458, 0.00378101)

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dw6s3qf8etxla" path="res://assets/DanAssets/CougHacks2024/heavybot/body/Heavybotbody.glb" id="1_n5ys7"]
 [ext_resource type="PackedScene" uid="uid://vujrmf0gwtbt" path="res://assets/DanAssets/enemies/hand/hand.tscn" id="2_5xb0v"]
-[ext_resource type="Script" path="res://assets/DanAssets/enemies/lightbotbody.gd" id="2_fw73n"]
+[ext_resource type="Script" path="res://assets/DanAssets/enemies/Bodies.cs" id="2_diua7"]
 [ext_resource type="PackedScene" uid="uid://d3eobturfoxi" path="res://assets/DanAssets/enemies/enemyweapons/missile.tscn" id="3_s4mwb"]
 [ext_resource type="PackedScene" uid="uid://md48eoprsiud" path="res://assets/DanAssets/enemies/enemyweapons/rifle.tscn" id="3_x1glm"]
 [ext_resource type="PackedScene" uid="uid://dkidd07cf58ji" path="res://assets/DanAssets/enemies/enemyweapons/smg.tscn" id="4_4clq0"]
@@ -24,11 +24,26 @@ nodes/Animation/position = Vector2(-60, 220)
 "nodes/Animation 2/position" = Vector2(-240, 140)
 node_connections = [&"output", 0, &"Animation"]
 
-[node name="Heavybotbody" instance=ExtResource("1_n5ys7")]
-script = ExtResource("2_fw73n")
+[node name="Heavybotbody" node_paths=PackedStringArray("Rifle", "Smg", "Bazooka", "Missile", "ShoulderCannon", "RailCannon", "Handspawner", "Backspawner") instance=ExtResource("1_n5ys7")]
+script = ExtResource("2_diua7")
+Rifle = NodePath("shouldercuff_l/Skeleton3D/right/hand/rifle")
+Smg = NodePath("shouldercuff_l/Skeleton3D/right/hand/smg")
+Bazooka = NodePath("shouldercuff_l/Skeleton3D/right/hand/zook")
+Missile = NodePath("backweapons/missile")
+ShoulderCannon = NodePath("backweapons/shouldercannon")
+RailCannon = NodePath("backweapons/railcannon")
+Handspawner = NodePath("shouldercuff_l/Skeleton3D/right/hand/spawner")
+Backspawner = NodePath("backweapons/spawner")
+
+[node name="Skeleton3D" parent="shouldercuff_l" index="0"]
+bones/2/rotation = Quaternion(0, 0.0506055, 0, 0.998719)
+bones/4/rotation = Quaternion(7.44733e-08, 5.62552e-07, 0.0784304, 0.99692)
+bones/5/rotation = Quaternion(0.14564, -7.25081e-10, -6.12178e-08, 0.989338)
+bones/7/rotation = Quaternion(0, 0.300706, 0, 0.953717)
+bones/10/rotation = Quaternion(0.461749, 4.00527e-15, 1.79812e-07, 0.887011)
 
 [node name="left" type="BoneAttachment3D" parent="shouldercuff_l/Skeleton3D" index="1"]
-transform = Transform3D(-1, 3.36922e-27, 3.89415e-07, 1.14601e-13, -1, -3.5527e-14, 3.89415e-07, -3.55271e-14, 1, 2.12278, -0.329983, -0.265423)
+transform = Transform3D(-0.987697, 0.149744, -0.0450636, -0.155577, -0.970082, 0.186377, -0.0158065, 0.191095, 0.981444, 2.21449, -0.316441, -0.390274)
 bone_name = "forearm.l"
 bone_idx = 5
 
@@ -36,7 +51,7 @@ bone_idx = 5
 transform = Transform3D(-1, 2.82191e-22, 0, 2.82191e-22, 1, 0, 0, 0, 1, 0, 1.66671, 0)
 
 [node name="right" type="BoneAttachment3D" parent="shouldercuff_l/Skeleton3D" index="2"]
-transform = Transform3D(-1, -1.35525e-20, -3.89414e-07, -8.12853e-14, -1, 9.93411e-08, -3.89414e-07, 9.93411e-08, 1, -2.12278, -0.329983, -0.265423)
+transform = Transform3D(-1, -5.68434e-14, -3.89414e-07, -3.89414e-07, 4.47035e-07, 1, 1.56319e-13, 1, -4.47035e-07, -2.12278, -0.105302, 0.447172)
 bone_name = "forearm.r"
 bone_idx = 10
 
@@ -55,7 +70,7 @@ visible = false
 transform = Transform3D(-1, -4.76837e-07, -3.89414e-07, -3.89414e-07, -4.37113e-08, 1, -4.76837e-07, 1, 4.37111e-08, 0, -0.0983248, 0.232125)
 visible = false
 
-[node name="spawner" type="Node3D" parent="shouldercuff_l/Skeleton3D/right/hand" index="5"]
+[node name="spawner" type="Marker3D" parent="shouldercuff_l/Skeleton3D/right/hand" index="5"]
 transform = Transform3D(1, 0, 0, 9.60093e-22, 1, 0, 0, 0, 1, -2.38419e-07, 3.27184, 0.6052)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
@@ -77,5 +92,5 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89348, 1.98191, -0.871335)
 visible = false
 
-[node name="spawner" type="Node3D" parent="backweapons" index="3"]
+[node name="spawner" type="Marker3D" parent="backweapons" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90666, 2.59638, 0.306606)

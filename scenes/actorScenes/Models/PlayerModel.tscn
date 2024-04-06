@@ -1546,7 +1546,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87435, 1.28497, -2.05835)
 [node name="spawner" type="Node3D" parent="foot_l/Skeleton3D/BoneAttachment3D/missile"]
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="foot_l/Skeleton3D"]
-transform = Transform3D(-0.971252, -0.206019, 0.119276, 0.233427, -0.922522, 0.307352, 0.0467144, 0.326358, 0.944091, -2.36053, 4.10765, 0.0654469)
+transform = Transform3D(-0.971252, -0.206018, 0.119275, 0.233426, -0.922522, 0.307352, 0.0467142, 0.326358, 0.944091, -2.36053, 4.10765, 0.0654464)
 bone_name = "forearm"
 bone_idx = 14
 

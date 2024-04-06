@@ -60,13 +60,7 @@ public partial class PlayerModel : AbstractModel
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-        if(this.GetMultiplayerAuthority() != SimulationPeerId)
-        {
-            GetAnimationTree().Set("parameters/movement/blend_position", MovementBlendPosition);
-        } else
-        {
-            MovementBlendPosition = (Vector2)GetAnimationTree().Get("parameters/movement/blend_position");
-        }
+        GetAnimationTree().Set("parameters/movement/blend_position", MovementBlendPosition);
 	}
 
     public override void ApplyImpulse(Vector3 vec)

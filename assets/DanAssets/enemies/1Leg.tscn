@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbs2h0cdax3g5"]
+[gd_scene load_steps=9 format=3 uid="uid://bbs2h0cdax3g5"]
 
 [ext_resource type="PackedScene" uid="uid://co5ku2m4phxy8" path="res://assets/DanAssets/CougHacks2024/midbot/legs/Midbotlegs.glb" id="1_at8o0"]
-[ext_resource type="Script" path="res://assets/DanAssets/enemies/midbot.gd" id="2_st5fa"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5fn27"]
 animation = &"idle"
@@ -38,10 +37,9 @@ nodes/output/position = Vector2(920, 140)
 node_connections = [&"output", 0, &"BlendSpace2D"]
 
 [node name="Midbotlegs" instance=ExtResource("1_at8o0")]
-script = ExtResource("2_st5fa")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(0, 4.49537, 0.00649883)
+bones/0/position = Vector3(0, 4.49537, 0.00649884)
 bones/2/rotation = Quaternion(0.673963, -0.146091, 0.0929155, 0.718191)
 bones/3/rotation = Quaternion(-9.1577e-08, 3.43281e-09, -0.226809, 0.973939)
 bones/4/rotation = Quaternion(0.00714676, -0.0290731, 0.746018, 0.665253)
@@ -58,7 +56,7 @@ bones/11/rotation = Quaternion(0.469455, -0.469455, 0.528784, -0.528783)
 bones/12/position = Vector3(-1.02306, 2.83451, 0.409153)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(3.57628e-07, 0, -1, 0, -1, 0, -1, 0, -3.57628e-07, 0, 4.49537, 0.00649883)
+transform = Transform3D(3.57628e-07, 0, -1, 0, -1, 0, -1, 0, -3.57628e-07, 0, 4.49537, 0.00649884)
 bone_name = "core"
 bone_idx = 0
 

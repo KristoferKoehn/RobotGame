@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bx0nucrkhnhsc"]
+[gd_scene load_steps=9 format=3 uid="uid://bx0nucrkhnhsc"]
 
 [ext_resource type="PackedScene" uid="uid://dwbfsxbyqrtoq" path="res://assets/DanAssets/CougHacks2024/heavybot/legs/Heavybotlegs.glb" id="1_0qrsh"]
-[ext_resource type="Script" path="res://assets/DanAssets/enemies/heavybot.gd" id="2_mmpgg"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5fn27"]
 animation = &"idle"
@@ -38,7 +37,6 @@ nodes/output/position = Vector2(920, 140)
 node_connections = [&"output", 0, &"BlendSpace2D"]
 
 [node name="Heavybotlegs" instance=ExtResource("1_0qrsh")]
-script = ExtResource("2_mmpgg")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(0, 4.6489, 0.00203976)
