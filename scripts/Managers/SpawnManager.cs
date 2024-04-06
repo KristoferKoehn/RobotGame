@@ -192,16 +192,16 @@ namespace MMOTest.scripts.Managers
             a.PuppetModelReference = em;
 
 
-            EnemyController enemyController = new EnemyController();
-            SceneOrganizerManager.GetInstance().CurrentLevel.AddChild(enemyController);
+            //EnemyController enemyController = new EnemyController();
+            //SceneOrganizerManager.GetInstance().CurrentLevel.AddChild(enemyController);
 
             ActorManager.GetInstance().actors[ActorID] = a;
 
             StatManager.GetInstance().AssignStatBlock(sb.SerializeStatBlock(), ActorID);
 
             Vector3 spawnPosition = GetValidSpawnPosition((Teams)statsDict[StatType.CTF_TEAM]);
-            enemyController.GlobalPosition = spawnPosition;
-            enemyController.AttachModel(em);
+            //enemyController.GlobalPosition = spawnPosition;
+            //enemyController.AttachModel(em);
             GD.Print(spawnPosition);
 
             SceneOrganizerManager.GetInstance().CurrentLevel.GetNode<Node>("PuppetModels").AddChild(em,forceReadableName:true);
