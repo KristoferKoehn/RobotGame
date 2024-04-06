@@ -247,6 +247,6 @@ public partial class EnemyModel : AbstractModel
 
     public override Node3D GetCastPoint()
     {
-        return GetNode<Marker3D>("foot_l/Skeleton3D/BoneAttachment3D/playerarm/rifle/spawner");
+        return HandMarker;
     }
 }
