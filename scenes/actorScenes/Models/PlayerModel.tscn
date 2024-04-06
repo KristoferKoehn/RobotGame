@@ -1326,6 +1326,9 @@ properties/2/replication_mode = 1
 properties/3/path = NodePath(".:ActorID")
 properties/3/spawn = true
 properties/3/replication_mode = 1
+properties/4/path = NodePath(".:MovementBlendPosition")
+properties/4/spawn = true
+properties/4/replication_mode = 1
 
 [node name="Mainbot" type="CharacterBody3D"]
 script = ExtResource("1_pppqk")
