@@ -30,7 +30,7 @@ namespace MMOTest.scripts.Managers
         {
             //kill the actor here
             //set dead = true or something. Lock up the controls. dig a grave
-
+            GD.Print("actor ddddied");
 
             DeadActors.Add(actor.ActorID, actor);
 

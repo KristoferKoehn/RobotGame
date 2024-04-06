@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cf6ismjnpmjdv"]
+[gd_scene load_steps=7 format=3 uid="uid://cf6ismjnpmjdv"]
 
 [ext_resource type="Script" path="res://scenes/actorScenes/Models/ConcreteModel.cs" id="1_4kyy7"]
 
@@ -22,6 +22,9 @@ properties/3/replication_mode = 1
 
 [sub_resource type="AnimationRootNode" id="AnimationRootNode_hrdvp"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_onoq5"]
+size = Vector3(0.5, 0.5, 0.5)
+
 [node name="TestModel" type="CharacterBody3D"]
 script = ExtResource("1_4kyy7")
 
@@ -43,4 +46,9 @@ tree_root = SubResource("AnimationRootNode_hrdvp")
 advance_expression_base_node = NodePath("../AnimationPlayer")
 
 [node name="CastPoint" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.980487, -1.15944)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.980487, 1.43314)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CastPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00676644, -0.0600823)
+mesh = SubResource("BoxMesh_onoq5")
+skeleton = NodePath("../..")

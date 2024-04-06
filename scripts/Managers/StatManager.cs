@@ -4,7 +4,7 @@ using MMOTest.scripts.Managers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+
 
 public partial class StatManager : Node
 {
