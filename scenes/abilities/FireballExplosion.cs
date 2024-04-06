@@ -60,17 +60,6 @@ public partial class FireballExplosion : AbstractAbility
 
             if (host)
             {
-                JObject m = new JObject
-                {
-                    { "type", "cast"},
-                    { "spell", "FireballExplosion"},
-                    { "posx", this.Position.X },
-                    { "posy", this.Position.Y },
-                    { "posz", this.Position.Z },
-                    { "SourceID", SourceActorID}
-                };
-                MessageQueue.GetInstance().AddMessage(m);
-
 
                 AbstractModel target = node as AbstractModel;
                 if (target != null)
