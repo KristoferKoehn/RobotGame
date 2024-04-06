@@ -9,7 +9,7 @@ script = ExtResource("1_kwuie")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.618, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraVerticalRotationPoint"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 5, 16)
 current = true
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraVerticalRotationPoint/Camera3D"]

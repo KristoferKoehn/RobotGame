@@ -1289,7 +1289,7 @@ blend_point_4/node = SubResource("AnimationNodeAnimation_tim17")
 blend_point_4/pos = Vector2(1, 0)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rm74n"]
-graph_offset = Vector2(-512.058, 112.587)
+graph_offset = Vector2(-489.318, 66.2957)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_7888l")
 nodes/Animation/position = Vector2(-200, 340)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_wko1v")
@@ -1516,14 +1516,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08882, -0.656523, 2.00176)
 [node name="rifle" parent="foot_l/Skeleton3D/BoneAttachment3D/playerarm" instance=ExtResource("5_mea3o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.74653, 2.24583)
 
-[node name="spawner" type="Node3D" parent="foot_l/Skeleton3D/BoneAttachment3D/playerarm/rifle"]
+[node name="spawner" type="Marker3D" parent="foot_l/Skeleton3D/BoneAttachment3D/playerarm/rifle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17725, 0.67335)
 
 [node name="machinegun" parent="foot_l/Skeleton3D/BoneAttachment3D/playerarm" instance=ExtResource("6_wv026")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 2)
 visible = false
 
-[node name="spawner" type="Node3D" parent="foot_l/Skeleton3D/BoneAttachment3D/playerarm/machinegun"]
+[node name="spawner" type="Marker3D" parent="foot_l/Skeleton3D/BoneAttachment3D/playerarm/machinegun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.373517, 1.44958)
 
 [node name="shotgun" parent="foot_l/Skeleton3D/BoneAttachment3D/playerarm" instance=ExtResource("7_xdxe8")]

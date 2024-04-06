@@ -50,6 +50,10 @@ public partial class ModelManager : Node
                 actor.PuppetModelReference.GlobalRotation = actor.ClientModelReference.GlobalRotation;
                 actor.PuppetModelReference.Velocity = actor.ClientModelReference.Velocity;
 
+                if (actor.ClientModelReference.GetType() == typeof(PlayerModel))
+                {
+                    actor.PuppetModelReference.GetAnimationTree().Set("parameters/movement/blend_position", actor.ClientModelReference.GetAnimationTree().Get("parameters/movement/blend_position"));
+                }
 
                 //change this to sync across all animationtree params (this will suck)
                 if (actor.PuppetModelReference.GetAnimationPlayer().CurrentAnimation != actor.ClientModelReference.GetAnimationPlayer().CurrentAnimation)
