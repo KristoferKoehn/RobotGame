@@ -82,7 +82,7 @@ namespace Managers.SocketServerManager
 
                 while (wsp.GetAvailablePacketCount() > 0)
                 {
-                    GD.Print(wsp.GetPacket());
+                    GD.Print(wsp.GetPacket().GetStringFromUtf8());
                 }
             }
 
