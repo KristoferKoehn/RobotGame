@@ -14,7 +14,7 @@ public partial class Fireball : AbstractAbility
         Vector3 position = new Vector3((float)obj.Property("posx"), (float)obj.Property("posy"), (float)obj.Property("posz"));
         Vector3 velocity = new Vector3((float)obj.Property("velx"), (float)obj.Property("vely"), (float)obj.Property("velz"));
         SourceActorID = (int)obj.Property("SourceID");
-        this.Position = position + velocity * 2;
+        this.Position = position;
         this.LinearVelocity = velocity;
     }
 
