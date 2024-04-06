@@ -268,7 +268,7 @@ public partial class EnemyController : AbstractController
         // Rotate the model to look at focus position
         Transform3D tr = Model.Transform.LookingAt(-focusPosition);
         this.Model.Transform = this.Model.Transform.InterpolateWith(tr, turnSpeed * (float)delta);
-        this.Transform = this.Model.Transform;
+        //this.Transform = this.Model.Transform;
 
         // Figure out what "buttons" the enemy is pressing
         
@@ -672,6 +672,8 @@ public partial class EnemyController : AbstractController
         ConcreteModel concreteModel = body as ConcreteModel;
         if (concreteModel != null)
         {
+            GD.Print("added to potential target list");
+
             int actorID = concreteModel.ActorID;
             Actor actor = ActorManager.GetInstance().GetActor(actorID);
             if (actor != null)
@@ -690,6 +692,9 @@ public partial class EnemyController : AbstractController
         ConcreteModel concreteModel = body as ConcreteModel;
         if (concreteModel != null)
         {
+
+            GD.Print("removed from potential target list");
+
             int actorID = concreteModel.ActorID;
             Actor actor = ActorManager.GetInstance().GetActor(actorID);
             if (actor != null)

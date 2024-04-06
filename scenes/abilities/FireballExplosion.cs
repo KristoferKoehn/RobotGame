@@ -1,8 +1,10 @@
 using Godot;
 using MMOTest.Backend;
+using MMOTest.scripts.Managers;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-
+using System.Collections.Generic;
 
 public partial class FireballExplosion : AbstractAbility
 {
@@ -58,12 +60,49 @@ public partial class FireballExplosion : AbstractAbility
 
             if (host)
             {
-                // damage message
+                JObject m = new JObject
+                {
+                    { "type", "cast"},
+                    { "spell", "FireballExplosion"},
+                    { "posx", this.Position.X },
+                    { "posy", this.Position.Y },
+                    { "posz", this.Position.Z },
+                    { "SourceID", SourceActorID}
+                };
+                MessageQueue.GetInstance().AddMessage(m);
+
+
+                AbstractModel target = node as AbstractModel;
+                if (target != null)
+                {
+                    StatBlock sourceBlock = StatManager.GetInstance().GetStatBlock(SourceActorID);
+                    StatBlock targetBlock = StatManager.GetInstance().GetStatBlock(target.GetActorID());
+                    int TargetID = target.GetActorID();
+                    //has base damage, and scales off intelligence
+                    //going to calculate the message here, ONLY SEND DELTA DATA
+
+                    float nextHealth = targetBlock.GetStat(StatType.HEALTH) - sourceBlock.GetStat(StatType.ABILITY_POINTS)/2.0f - 1;
+                    float delta = nextHealth - targetBlock.GetStat(StatType.HEALTH);
+                    JObject b = new JObject
+                    {
+                        { "type", "statchange" },
+                        { "TargetID", TargetID },
+                        { "SourceID", SourceActorID },
+                    };
+
+                    List<StatProperty> values = new List<StatProperty>
+                    {
+                        new StatProperty(StatType.HEALTH, delta)
+                    };
+
+                    b["stats"] = JsonConvert.SerializeObject(values);
+                    MessageQueue.GetInstance().AddMessage(b);
+                }
             }
-            else
-            {
-                ((AbstractModel)node).ApplyImpulse((node.Position + new Vector3(0, 1.0f, 0) - this.Position).Normalized() * 60000);
-            }
+
+
+            ((AbstractModel)node).ApplyImpulse((node.Position + new Vector3(0, 1.0f, 0) - this.Position).Normalized() * 60000);
+
         }
     }
 }
