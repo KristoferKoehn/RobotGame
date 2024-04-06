@@ -1328,7 +1328,6 @@ properties/3/spawn = true
 properties/3/replication_mode = 1
 
 [node name="Mainbot" type="CharacterBody3D"]
-collision_layer = 4
 script = ExtResource("1_pppqk")
 
 [node name="foot_l" type="Node3D" parent="."]
@@ -1555,10 +1554,13 @@ mesh = SubResource("BoxMesh_osq6e")
 surface_material_override/0 = SubResource("StandardMaterial3D_hkjr8")
 
 [node name="Area3D" type="Area3D" parent="foot_l/Skeleton3D/BoneAttachment3D2"]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="foot_l/Skeleton3D/BoneAttachment3D2/Area3D"]
 transform = Transform3D(1, -2.79397e-09, -1.49012e-08, 1.11759e-08, 1, -1.78814e-07, 3.35276e-08, -2.68221e-07, 1, 0.494501, 5.39096, 0.0212374)
 shape = SubResource("ConcavePolygonShape3D_74to4")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

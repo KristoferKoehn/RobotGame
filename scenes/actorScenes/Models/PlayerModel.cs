@@ -31,13 +31,10 @@ public partial class PlayerModel : AbstractModel
     public override void _Ready()
 	{
 
-        pivot = GetNode<Node3D>("pivot");
-        tilt = GetNode<Node3D>("pivot/tilt");
         body = GetNode<Node3D>("foot_l");
         antree = GetNode<AnimationTree>("AnimationTree");
         gunarm = GetNode<Node3D>("foot_l/Skeleton3D/BoneAttachment3D/playerarm");
         aimer = GetNode<Node3D>("foot_l/Skeleton3D/BoneAttachment3D/aimer");
-        raycaster = GetNode<Node3D>("pivot/tilt/RayCast3D");
         handCastPoint = GetNode<Node3D>("foot_l/Skeleton3D/BoneAttachment3D/playerarm/spawner");
         MissileCastPoint = GetNode<Node3D>("foot_l/Skeleton3D/BoneAttachment3D/missile/spawner");
         rifle = GetNode<Node3D>("foot_l/Skeleton3D/BoneAttachment3D/playerarm/rifle");

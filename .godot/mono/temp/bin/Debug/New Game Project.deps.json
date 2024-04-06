@@ -8,32 +8,32 @@
     ".NETCoreApp,Version=v6.0": {
       "New Game Project/1.0.0": {
         "dependencies": {
-          "Godot.SourceGenerators": "4.2.1",
-          "GodotSharp": "4.2.1",
-          "GodotSharpEditor": "4.2.1",
+          "Godot.SourceGenerators": "4.3.0-dev.5",
+          "GodotSharp": "4.3.0-dev.5",
+          "GodotSharpEditor": "4.3.0-dev.5",
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
           "New Game Project.dll": {}
         }
       },
-      "Godot.SourceGenerators/4.2.1": {},
-      "GodotSharp/4.2.1": {
+      "Godot.SourceGenerators/4.3.0-dev.5": {},
+      "GodotSharp/4.3.0-dev.5": {
         "runtime": {
           "lib/net6.0/GodotSharp.dll": {
-            "assemblyVersion": "4.2.1.0",
-            "fileVersion": "4.2.1.0"
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.0.0"
           }
         }
       },
-      "GodotSharpEditor/4.2.1": {
+      "GodotSharpEditor/4.3.0-dev.5": {
         "dependencies": {
-          "GodotSharp": "4.2.1"
+          "GodotSharp": "4.3.0-dev.5"
         },
         "runtime": {
           "lib/net6.0/GodotSharpEditor.dll": {
-            "assemblyVersion": "4.2.1.0",
-            "fileVersion": "4.2.1.0"
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.0.0"
           }
         }
       },
@@ -53,26 +53,26 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Godot.SourceGenerators/4.2.1": {
+    "Godot.SourceGenerators/4.3.0-dev.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MdLFzDZEMUbXRLH4bLX8o9Blk76M7Op76RyobZ1zyKgcIkgPqG+p53jgLFLSHpBGFKKaW3kB0w6om+wYauwHbw==",
-      "path": "godot.sourcegenerators/4.2.1",
-      "hashPath": "godot.sourcegenerators.4.2.1.nupkg.sha512"
+      "sha512": "sha512-g+JEo95nU7isjpI5bXwpiWoYxFZeE0MKU9197upDII5XrNkr6KMzi2JFeed0BVdxF8RTN0imRvhzFbG2vsXJoQ==",
+      "path": "godot.sourcegenerators/4.3.0-dev.5",
+      "hashPath": "godot.sourcegenerators.4.3.0-dev.5.nupkg.sha512"
     },
-    "GodotSharp/4.2.1": {
+    "GodotSharp/4.3.0-dev.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6a/GML0jXcwT6LxDBtRx+hpPBUFGAmK7GVb/ehKP53nx0AHA+Yc//B7anXY4U4WCMB+ckgsouWpd8rAeupNfbw==",
-      "path": "godotsharp/4.2.1",
-      "hashPath": "godotsharp.4.2.1.nupkg.sha512"
+      "sha512": "sha512-6FSY9qEKzFXjBLnrqdv99baKCOdEvZ1XfwjDIstpq1RPljZoxGjRBB0vLBxZNoZD+sAtvmbohoT0nJvSFmH5Eg==",
+      "path": "godotsharp/4.3.0-dev.5",
+      "hashPath": "godotsharp.4.3.0-dev.5.nupkg.sha512"
     },
-    "GodotSharpEditor/4.2.1": {
+    "GodotSharpEditor/4.3.0-dev.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wibPQq4Gj43T/zlhwogJRnRSxfvfIqGCvnPEz1nSp6aPx4CTu1gZW7gDYx/MRQ9LX2SwKh4N6QXkFp7PhB33Tw==",
-      "path": "godotsharpeditor/4.2.1",
-      "hashPath": "godotsharpeditor.4.2.1.nupkg.sha512"
+      "sha512": "sha512-tMUDpFosJrQdlSOWAM1T1YBv/cMnZVhLdJq2E73VixVcyrxloyBb32BRMmUapTiRt9ff9hYPpivxV07HWljaGg==",
+      "path": "godotsharpeditor/4.3.0-dev.5",
+      "hashPath": "godotsharpeditor.4.3.0-dev.5.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.3": {
       "type": "package",

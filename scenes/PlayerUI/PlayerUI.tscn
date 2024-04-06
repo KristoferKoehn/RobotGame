@@ -78,5 +78,10 @@ columns = 3
 layout_mode = 2
 text = "TestPlayer"
 
+[node name="MechPlayerButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
+layout_mode = 2
+text = "Mech"
+
 [connection signal="pressed" from="SpawnPanel/Panel/SpawnButton" to="SpawnPanel" method="_on_spawn_button_pressed"]
 [connection signal="pressed" from="SpawnPanel/Panel/GridContainer/TestPlayerButton" to="SpawnPanel" method="_on_test_player_button_pressed"]
+[connection signal="pressed" from="SpawnPanel/Panel/GridContainer/MechPlayerButton" to="SpawnPanel" method="_on_mech_player_button_pressed"]

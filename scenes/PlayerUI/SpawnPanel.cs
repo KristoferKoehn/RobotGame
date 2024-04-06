@@ -28,6 +28,12 @@ public partial class SpawnPanel : Control
 
     public void _on_test_player_button_pressed()
     { 
+        currentClass = "Test";
+        displayLabel.Text = "Playing As: " + currentClass;
+    }
+
+    public void _on_mech_player_button_pressed()
+    {
         currentClass = "Player";
         displayLabel.Text = "Playing As: " + currentClass;
     }
