@@ -14,7 +14,7 @@ size = Vector3(9.616, 1, 7.929)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jyenp"]
 resource_local_to_scene = true
-size = Vector3(13.291, 0.97, 17.574)
+size = Vector3(141.65, 0.97, 135.665)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7ghl1"]
 data = PackedVector3Array(-6, 4, 4, 6, 4, 4, -6, -4, 4, 6, 4, 4, 6, -4, 4, -6, -4, 4, 6, 4, -4, -6, 4, -4, 6, -4, -4, -6, 4, -4, -6, -4, -4, 6, -4, -4, 6, 4, 4, 6, 4, -4, 6, -4, 4, 6, 4, -4, 6, -4, -4, 6, -4, 4, -6, 4, -4, -6, 4, 4, -6, -4, -4, -6, 4, 4, -6, -4, 4, -6, -4, -4, 6, 4, 4, -6, 4, 4, 6, 4, -4, -6, 4, 4, -6, 4, -4, 6, 4, -4, -6, -4, 4, 6, -4, 4, -6, -4, -4, 6, -4, 4, 6, -4, -4, -6, -4, -4)
@@ -75,7 +75,22 @@ transform = Transform3D(0.764393, 0, -0.644751, 0, 1, 0, 0.644751, 0, 0.764393, 
 Shape = SubResource("BoxShape3D_a6bmg")
 
 [node name="SpawnArea" parent="." instance=ExtResource("17_el60w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.41485, -58.0644)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.8976, 220.666)
+Team = 5
+Shape = SubResource("BoxShape3D_jyenp")
+
+[node name="SpawnArea2" parent="." instance=ExtResource("17_el60w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7934, 24.8975, -383.025)
+Team = 5
+Shape = SubResource("BoxShape3D_jyenp")
+
+[node name="SpawnArea3" parent="." instance=ExtResource("17_el60w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 342.396, 24.8975, 169.975)
+Team = 5
+Shape = SubResource("BoxShape3D_jyenp")
+
+[node name="SpawnArea4" parent="." instance=ExtResource("17_el60w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -342.414, 24.8975, -274.751)
 Team = 5
 Shape = SubResource("BoxShape3D_jyenp")
 
