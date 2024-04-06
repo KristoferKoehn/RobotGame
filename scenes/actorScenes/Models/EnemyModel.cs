@@ -7,7 +7,7 @@ public partial class EnemyModel : AbstractModel
     [Export] public long TrackingPeerId { get; set; } = -1;
     [Export] public int ActorID { get; set; } = -1;
     [Export] public Vector2 MovementBlendPosition { get; set; } = Vector2.Zero;
-    AbstractController playerController { get; set; }
+    public AbstractController playerController { get; set; }
     AnimationTree AnimationTree { get; set; }
     [Export] public int Leg { get; set; } = 0;
     [Export] public int Body { get; set; } = 0;

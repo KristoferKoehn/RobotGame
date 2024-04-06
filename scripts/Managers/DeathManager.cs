@@ -40,6 +40,7 @@ namespace MMOTest.scripts.Managers
             AddChild(at);
             if(actor.ClientModelReference == null)
             {
+
                 GD.Print("he be dead");
                 ActorManager.GetInstance().RemoveActor(actor.ActorID);
                 if (actor.ClientModelReference != null)
@@ -48,6 +49,10 @@ namespace MMOTest.scripts.Managers
                 }
                 if (actor.PuppetModelReference != null)
                 {
+                    if(actor.PuppetModelReference.GetType() ==  typeof(EnemyModel))
+                    {
+                        ((EnemyModel)actor.PuppetModelReference).playerController.QueueFree();
+                    }
                     actor.PuppetModelReference.QueueFree();
                 }
                 return;
