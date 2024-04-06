@@ -297,11 +297,11 @@ public partial class EnemyController : AbstractController
             float distanceToQuarry = (ActiveQuarry.ClientModelReference.GlobalPosition - this.GlobalPosition).Length();
             if (distanceToQuarry > this.WeaponMaxRange)
             {
-                inputDirection += new Vector2(0, -1); // Forward
+                inputDirection += new Vector2(0, 1); // Forward
             }
             else if (distanceToQuarry < this.WeaponMinRange)
             {
-                inputDirection += new Vector2(0, 1); // Backward
+                inputDirection += new Vector2(0, -1); // Backward
             }
             else // In range, strafe for line of sight, shoot if you have it.
             {
@@ -340,7 +340,7 @@ public partial class EnemyController : AbstractController
         }
         else
         {
-            inputDirection += new Vector2(0, -1); // Forward, toward destination
+            inputDirection += new Vector2(0, 1); // Forward, toward destination
         }
 
         //convert to a vector that points the right way in the world.
