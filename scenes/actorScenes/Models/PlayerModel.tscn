@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://7st77j7rpqnd"]
+[gd_scene load_steps=40 format=3 uid="uid://7st77j7rpqnd"]
 
 [ext_resource type="Script" path="res://scenes/actorScenes/Models/PlayerModel.cs" id="1_pppqk"]
 [ext_resource type="Texture2D" uid="uid://4hxbdk4cnp5y" path="res://assets/DanAssets/CougHacks2024/usableassets/player/DefaultMaterial_baseColor.png" id="2_k8hcj"]
@@ -1313,6 +1313,20 @@ node_connections = [&"TimeScale", 0, &"Animation 2", &"death", 0, &"melee", &"de
 radius = 3.0
 height = 6.78284
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_e8udi"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:TrackingPeerId")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:ActorID")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+
 [node name="Mainbot" type="CharacterBody3D"]
 collision_layer = 4
 script = ExtResource("1_pppqk")
@@ -1566,3 +1580,6 @@ parameters/movement/blend_position = Vector2(0.00158978, 0.00440526)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.39817, 0)
 shape = SubResource("CapsuleShape3D_50uid")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_e8udi")
