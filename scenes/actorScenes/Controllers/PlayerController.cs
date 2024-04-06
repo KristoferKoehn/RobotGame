@@ -246,7 +246,7 @@ public partial class PlayerController : AbstractController
                 target = (RayCast.GlobalPosition - Camera.GlobalPosition).Normalized() * 1000f; // Arbitrary "Max distance"
             }
             Vector3 fireballTrajectory = (target - CastingPoint.GlobalPosition).Normalized() * 60f;
-
+            GetNode<AudioStreamPlayer3D>("AudioStreamPlayer3D").Play();
             JObject job = new JObject
             {
                 { "spell", "Fireball"},
@@ -277,12 +277,9 @@ public partial class PlayerController : AbstractController
         // Rotate the model to reflect the change
 
 
-        if (transformedInputDirectionVector != Vector3.Zero)
-        {
-            //Transform3D tr = Model.Transform.LookingAt(Model.GlobalPosition + -(transformedInputDirectionVector));
-            Transform3D tr = Model.Transform.LookingAt(Model.GlobalPosition + (Transform.Basis * new Vector3(0,0,1)));
-            this.Model.Transform = this.Model.Transform.InterpolateWith(tr, turnSpeed * (float)delta);
-        }
+        Transform3D tr = Model.Transform.LookingAt(Model.GlobalPosition + (Transform.Basis * new Vector3(0, 0, 1)));
+        this.Model.Transform = this.Model.Transform.InterpolateWith(tr, turnSpeed * (float)delta);
+
 
         // Set internal force vector to a normalized version of the direction buttons are being pressed in the world. 
         internalForceVector = transformedInputDirectionVector.Normalized();

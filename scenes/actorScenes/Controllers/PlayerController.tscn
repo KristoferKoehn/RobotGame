@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmk783fseep4a"]
+[gd_scene load_steps=3 format=3 uid="uid://bmk783fseep4a"]
 
 [ext_resource type="Script" path="res://scenes/actorScenes/Controllers/PlayerController.cs" id="1_kwuie"]
+[ext_resource type="AudioStream" uid="uid://dvdhi72qad3xj" path="res://sound/heavy_shot.wav" id="2_mi1y8"]
 
 [node name="PlayerController" type="Node3D"]
 script = ExtResource("1_kwuie")
@@ -15,3 +16,8 @@ current = true
 [node name="RayCast3D" type="RayCast3D" parent="CameraVerticalRotationPoint/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 target_position = Vector3(0, 0, -1)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_mi1y8")
+max_polyphony = 6
+doppler_tracking = 2

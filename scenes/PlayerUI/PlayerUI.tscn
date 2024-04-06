@@ -1,16 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6sxms4tbyhr"]
+[gd_scene load_steps=7 format=3 uid="uid://b6sxms4tbyhr"]
 
 [ext_resource type="Script" path="res://scenes/PlayerUI/PlayerUI.cs" id="1_b8ymi"]
 [ext_resource type="Script" path="res://scenes/PlayerUI/SpawnPanel.cs" id="2_5b6ic"]
+[ext_resource type="Texture2D" uid="uid://di47fgiqsop4d" path="res://assets/MapResources/health_bar_background.png" id="3_02oep"]
+[ext_resource type="Texture2D" uid="uid://b2c1lfskvptdd" path="res://assets/MapResources/health_bar_positive.png" id="4_g1pne"]
+[ext_resource type="Texture2D" uid="uid://06cfuq7pkbbr" path="res://assets/MapResources/health_bar_negative.png" id="4_jfc6n"]
+[ext_resource type="Texture2D" uid="uid://ba3dg2tvlt00m" path="res://assets/MapResources/health_bar_foreground.png" id="5_k4wfv"]
 
 [node name="PlayerUI" type="CanvasLayer"]
 script = ExtResource("1_b8ymi")
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 23.0
-offset_top = 23.0
-offset_right = 443.0
-offset_bottom = 50.0
 
 [node name="ActorID" type="Label" parent="."]
 offset_left = 11.0
@@ -81,6 +79,29 @@ text = "TestPlayer"
 [node name="MechPlayerButton" type="Button" parent="SpawnPanel/Panel/GridContainer"]
 layout_mode = 2
 text = "Mech"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 327.0
+offset_top = 37.0
+offset_right = 367.0
+offset_bottom = 77.0
+scale = Vector2(0.385, 0.385)
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="Control"]
+offset_right = 1176.0
+offset_bottom = 75.0
+value = 100.0
+texture_under = ExtResource("3_02oep")
+texture_progress = ExtResource("4_jfc6n")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control"]
+offset_right = 1176.0
+offset_bottom = 75.0
+value = 100.0
+texture_over = ExtResource("5_k4wfv")
+texture_progress = ExtResource("4_g1pne")
 
 [connection signal="pressed" from="SpawnPanel/Panel/SpawnButton" to="SpawnPanel" method="_on_spawn_button_pressed"]
 [connection signal="pressed" from="SpawnPanel/Panel/GridContainer/TestPlayerButton" to="SpawnPanel" method="_on_test_player_button_pressed"]

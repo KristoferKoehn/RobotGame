@@ -29,6 +29,9 @@ public partial class FireballExplosion : AbstractAbility
         
         t.Play();
         G.Play();
+
+        GetNode<AudioStreamPlayer3D>("AudioStreamPlayer3D").Play();
+
     }
 
     public override void Initialize(JObject obj)
