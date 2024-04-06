@@ -194,10 +194,10 @@ namespace MMOTest.scripts.Managers
 
             a.ActorID = ActorID;
 
-            StatManager.GetInstance().AssignStatBlock(sb.SerializeStatBlock(), ActorID);
 
             ActorManager.GetInstance().actors[ActorID] = a;
 
+            StatManager.GetInstance().AssignStatBlock(sb.SerializeStatBlock(), ActorID);
 
             Vector3 spawnPosition = GetValidSpawnPosition((Teams)statsDict[StatType.CTF_TEAM]);
 
