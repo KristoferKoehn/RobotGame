@@ -34,9 +34,6 @@ namespace MMOTest.scripts.Managers
 
             DeadActors.Add(actor.ActorID, actor);
 
-
-            // for auto respawning
-            /*
             ActorTimer at = GD.Load<PackedScene>("res://scenes/utility/ActorTimer.tscn").Instantiate<ActorTimer>();
             at.ActorID = actor.ActorID;
             AddChild(at);
@@ -44,9 +41,9 @@ namespace MMOTest.scripts.Managers
             at.Start(5);
             at.ActorTimerTimeout += RespawnActor;
             at.Timeout += at.QueueFree;
-            */
 
         }
+
 
         public void RespawnActor(int ActorID)
         {

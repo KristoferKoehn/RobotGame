@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf6ismjnpmjdv"]
+[gd_scene load_steps=8 format=3 uid="uid://cf6ismjnpmjdv"]
 
 [ext_resource type="Script" path="res://scenes/actorScenes/Models/ConcreteModel.cs" id="1_4kyy7"]
 
@@ -24,6 +24,8 @@ properties/3/replication_mode = 1
 
 [sub_resource type="BoxMesh" id="BoxMesh_onoq5"]
 size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_nnauu"]
 
 [node name="TestModel" type="CharacterBody3D"]
 script = ExtResource("1_4kyy7")
@@ -52,3 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.980487, 1.43314)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00676644, -0.0600823)
 mesh = SubResource("BoxMesh_onoq5")
 skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3369, 0.180036)
+mesh = SubResource("SphereMesh_nnauu")

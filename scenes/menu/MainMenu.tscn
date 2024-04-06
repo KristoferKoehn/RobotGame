@@ -35,7 +35,7 @@ offset_right = 39.5
 offset_bottom = -152.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "MMOTEST"
+text = "FUNNY ROBOT"
 label_settings = SubResource("LabelSettings_jxigk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
@@ -64,6 +64,23 @@ text = "Solo
 [node name="Quit" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -146.0
+offset_top = -183.0
+offset_right = -103.0
+offset_bottom = -160.0
+rotation = -0.642758
+text = "Dan's"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = -139.0
+offset_right = 91.0
+offset_bottom = -116.0
+text = "Simulator"
 
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Connect" to="." method="_on_connect_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Solo" to="." method="_on_solo_pressed"]
