@@ -192,25 +192,35 @@ namespace MMOTest.scripts.Managers
             a.PuppetModelReference = em;
 
 
-            EnemyController enemyController = ResourceLoader.Load<PackedScene>("res://scenes/actorScenes/Controllers/EnemyController.tscn").Instantiate<EnemyController>();
-
-
-
-            SceneOrganizerManager.GetInstance().CurrentLevel.AddChild(enemyController);
+            
 
             ActorManager.GetInstance().actors[ActorID] = a;
 
             StatManager.GetInstance().AssignStatBlock(sb.SerializeStatBlock(), ActorID);
 
             Vector3 spawnPosition = GetValidSpawnPosition((Teams)statsDict[StatType.CTF_TEAM]);
-            enemyController.GlobalPosition = spawnPosition;
-            enemyController.AttachModel(em);
+            
             GD.Print(spawnPosition);
 
             SceneOrganizerManager.GetInstance().CurrentLevel.GetNode<Node>("PuppetModels").AddChild(em,forceReadableName:true);
             em.GlobalPosition = spawnPosition;
 
+            ActorTimer at = ResourceLoader.Load<PackedScene>("res://scenes/utility/ActorTimer.tscn").Instantiate<ActorTimer>();
+            at.ActorID = ActorID;
+            this.AddChild(at);
+            at.ActorTimerTimeout += AttachEnemyController;
+            at.Timeout += at.QueueFree;
+            at.Start(0.7f);
         }
 
+
+        public void AttachEnemyController(int ActorID)
+        {
+            EnemyController enemyController = ResourceLoader.Load<PackedScene>("res://scenes/actorScenes/Controllers/EnemyController.tscn").Instantiate<EnemyController>();
+            SceneOrganizerManager.GetInstance().CurrentLevel.AddChild(enemyController);
+            AbstractModel am = ActorManager.GetInstance().actors[ActorID].PuppetModelReference;
+            enemyController.GlobalPosition = ActorManager.GetInstance().actors[ActorID].PuppetModelReference.GlobalPosition;
+            enemyController.AttachModel(am);
+        }
     }
 }
