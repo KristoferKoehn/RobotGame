@@ -266,12 +266,14 @@ public partial class EnemyController : AbstractController
         }
 
         // Rotate the model to look at focus position
-        Transform3D tr = Model.Transform.LookingAt(-focusPosition);
+        this.Transform = this.Model.Transform;
+        Vector3 relativeFocusPosition = (focusPosition - this.GlobalPosition).Normalized() * this.Transform.Basis;
+        Transform3D tr = Model.Transform.LookingAt(Model.GlobalPosition + relativeFocusPosition);
+        //Transform3D tr = Model.Transform.LookingAt(focusPosition);
         this.Model.Transform = this.Model.Transform.InterpolateWith(tr, turnSpeed * (float)delta);
-        //this.Transform = this.Model.Transform;
 
         // Figure out what "buttons" the enemy is pressing
-        
+
         // Move away from other objects
         Basis modelBasis = this.Model.Transform.Basis;
         inputDirection = new Vector2();

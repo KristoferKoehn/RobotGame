@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6sxms4tbyhr"]
+[gd_scene load_steps=10 format=3 uid="uid://b6sxms4tbyhr"]
 
 [ext_resource type="Script" path="res://scenes/PlayerUI/PlayerUI.cs" id="1_b8ymi"]
 [ext_resource type="Script" path="res://scenes/PlayerUI/SpawnPanel.cs" id="2_5b6ic"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://b2c1lfskvptdd" path="res://assets/MapResources/health_bar_positive.png" id="4_g1pne"]
 [ext_resource type="Texture2D" uid="uid://06cfuq7pkbbr" path="res://assets/MapResources/health_bar_negative.png" id="4_jfc6n"]
 [ext_resource type="Texture2D" uid="uid://ba3dg2tvlt00m" path="res://assets/MapResources/health_bar_foreground.png" id="5_k4wfv"]
+[ext_resource type="Texture2D" uid="uid://0tvrr1ell2fn" path="res://assets/models/crosshair_main.png" id="7_by14p"]
+[ext_resource type="Texture2D" uid="uid://dv4lt57m68otr" path="res://assets/models/crosshair_left.png" id="8_kdffk"]
+[ext_resource type="Texture2D" uid="uid://h3ojfv060a5j" path="res://assets/models/crosshair_right.png" id="9_lxeag"]
 
 [node name="PlayerUI" type="CanvasLayer"]
 script = ExtResource("1_b8ymi")
@@ -102,6 +105,24 @@ offset_bottom = 75.0
 value = 100.0
 texture_over = ExtResource("5_k4wfv")
 texture_progress = ExtResource("4_g1pne")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 616.0
+offset_bottom = 364.0
+scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control2"]
+texture = ExtResource("7_by14p")
+
+[node name="Left" type="Sprite2D" parent="Control2"]
+texture = ExtResource("8_kdffk")
+
+[node name="Right" type="Sprite2D" parent="Control2"]
+texture = ExtResource("9_lxeag")
 
 [connection signal="pressed" from="SpawnPanel/Panel/SpawnButton" to="SpawnPanel" method="_on_spawn_button_pressed"]
 [connection signal="pressed" from="SpawnPanel/Panel/GridContainer/TestPlayerButton" to="SpawnPanel" method="_on_test_player_button_pressed"]

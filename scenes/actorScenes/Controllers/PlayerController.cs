@@ -51,9 +51,9 @@ public partial class PlayerController : AbstractController
 
     // These are about the desired behavior of the character
     [Export] private float jumpHeight = 3f; // 3 meters is way higher than people can jump but 0.3 feels bad because you cant pick up your legs to clear a fence.
-    [Export] private float maxSprintSpeed = 40f; // 10 meters a second. Ballpark of olympic athletes in 200m races.
+    [Export] private float maxSprintSpeed = 60f; // 10 meters a second. Ballpark of olympic athletes in 200m races.
     [Export] private float maxSwimSpeed = 2.2f; // 2.2 Meters per second. https://www.wired.com/2012/08/olympics-physics-swimming/
-    [Export] private float maxFlySpeed = 40f; //Terminal velocity?  // People cant fly. Should be zero, but having it at 10 helps a bit.The air thrust force needs to be calculated differently. Drag doesnt make sense.
+    [Export] private float maxFlySpeed = 60f; //Terminal velocity?  // People cant fly. Should be zero, but having it at 10 helps a bit.The air thrust force needs to be calculated differently. Drag doesnt make sense.
     [Export] private float angleOfAttack = (float)(Math.PI / 4f); // How much you glide while falling;
 
     // These are derived from the exported values and are actually used in calculations
@@ -99,6 +99,11 @@ public partial class PlayerController : AbstractController
     [Export] private float jetPackForce = 1200f; // Arbitrary. Might turn into a calculation later. Give it a better handle
     [Export] private float propulsionThrustForce = 300f;
 
+    PlayerUI playerUI;
+
+    bool shootOnCoolDownFlag = false;
+
+
     public bool WaterFlag { get; private set; }
 
     public override void _EnterTree()
@@ -120,6 +125,8 @@ public partial class PlayerController : AbstractController
         
         // TODO: Check before setting 
         SetWaterFlag(false);
+
+
     }
 
     public void AttachModel(AbstractModel model)
@@ -135,6 +142,7 @@ public partial class PlayerController : AbstractController
         PlayerUI p = GD.Load<PackedScene>("res://scenes/PlayerUI/PlayerUI.tscn").Instantiate<PlayerUI>();
         p.initialize(ActorID);
         this.AddChild(p);
+        playerUI = p;
     }
 
     public override void _Input(InputEvent @event)
@@ -234,32 +242,47 @@ public partial class PlayerController : AbstractController
             }
         }
 
-        if (Input.IsActionJustPressed("shoot_throw"))
+        if (Input.IsActionPressed("shoot_throw"))
         {
-            Vector3 target;
-            if (RayCast.IsColliding())
+
+            if(!shootOnCoolDownFlag)
             {
-                target = RayCast.GetCollisionPoint();
+
+                Timer t = new Timer();
+                t.Timeout += ShootCoolDownOver;
+                t.Timeout += t.QueueFree;
+                this.AddChild(t);
+                t.Start(0.15);
+                shootOnCoolDownFlag = true;
+
+                Vector3 target;
+                if (RayCast.IsColliding())
+                {
+                    target = RayCast.GetCollisionPoint();
+                }
+                else
+                {
+                    target = (RayCast.GlobalPosition - Camera.GlobalPosition).Normalized() * 1000f; // Arbitrary "Max distance"
+                }
+                Vector3 fireballTrajectory = (target - CastingPoint.GlobalPosition).Normalized() * 60f;
+                GetNode<AudioStreamPlayer3D>("AudioStreamPlayer3D").Play();
+                playerUI.CrosshairAnimation();
+                JObject job = new JObject
+                {
+                    { "spell", "Fireball"},
+                    { "type", "cast"},
+                    { "posx", CastingPoint.GlobalPosition.X},
+                    { "posy", CastingPoint.GlobalPosition.Y},
+                    { "posz", CastingPoint.GlobalPosition.Z},
+                    { "velx", fireballTrajectory.X},
+                    { "vely", fireballTrajectory.Y},
+                    { "velz", fireballTrajectory.Z},
+                    { "SourceID", Model.GetActorID()}
+                };
+                MessageQueue.GetInstance().RpcId(1, "AddMessage", JsonConvert.SerializeObject(job));
+
             }
-            else
-            {
-                target = (RayCast.GlobalPosition - Camera.GlobalPosition).Normalized() * 1000f; // Arbitrary "Max distance"
-            }
-            Vector3 fireballTrajectory = (target - CastingPoint.GlobalPosition).Normalized() * 60f;
-            GetNode<AudioStreamPlayer3D>("AudioStreamPlayer3D").Play();
-            JObject job = new JObject
-            {
-                { "spell", "Fireball"},
-                { "type", "cast"},
-                { "posx", CastingPoint.GlobalPosition.X},
-                { "posy", CastingPoint.GlobalPosition.Y},
-                { "posz", CastingPoint.GlobalPosition.Z},
-                { "velx", fireballTrajectory.X},
-                { "vely", fireballTrajectory.Y},
-                { "velz", fireballTrajectory.Z},
-                { "SourceID", Model.GetActorID()}
-            };
-            MessageQueue.GetInstance().RpcId(1, "AddMessage", JsonConvert.SerializeObject(job));
+
             //this.GetParent<MainLevel>().RpcId(1,"SendMessage", job.ToString());
         }
 
@@ -422,6 +445,12 @@ public partial class PlayerController : AbstractController
         //    }
         //}
     }
+
+    public void ShootCoolDownOver()
+    {
+        shootOnCoolDownFlag = false;
+    }
+
 
     public override void ApplyImpulse(Vector3 vec)
     {

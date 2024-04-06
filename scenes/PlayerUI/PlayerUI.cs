@@ -62,6 +62,26 @@ public partial class PlayerUI : CanvasLayer
 		return label;
 	}
 
+	public void CrosshairAnimation()
+	{
+		Sprite2D left = GetNode<Sprite2D>("Control2/Left");
+        Sprite2D right = GetNode<Sprite2D>("Control2/Right");
+
+
+
+        Tween t1 = GetTree().CreateTween();
+		t1.TweenProperty(left, "position", left.Position + new Vector2(-30, 0), 0.1);
+        t1.Chain().TweenProperty(left, "position", Vector2.Zero, 0.3);
+
+        Tween t2 = GetTree().CreateTween();
+        t2.TweenProperty(right, "position", right.Position + new Vector2(30, 0), 0.1);
+        t2.Chain().TweenProperty(right, "position", Vector2.Zero, 0.3);
+
+		t1.Play();
+		t2.Play();
+	}
+
+
     public override void _Input(InputEvent @event)
     {
 
