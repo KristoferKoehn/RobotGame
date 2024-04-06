@@ -191,6 +191,8 @@ namespace MMOTest.scripts.Managers
                 ActorID = (int)rng.Randi();
             }
 
+            a.ActorID = ActorID;
+
 
             ActorManager.GetInstance().actors[(long)1] = a;
 
