@@ -58,7 +58,9 @@ public partial class EnemyModel : AbstractModel
 
         if (lastLeg != Leg)
         {
-            if(LegNodes != null)
+
+            GD.Print("LegDifference");
+            if (LegNodes != null)
             {
                 LegNodes.QueueFree();
             }
