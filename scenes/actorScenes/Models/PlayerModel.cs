@@ -5,6 +5,7 @@ public partial class PlayerModel : AbstractModel
 {
     [Export] public long TrackingPeerId { get; set; } = -1;
     [Export] public int ActorID { get; set; } = -1;
+    [Export] public Vector2 MovementBlendPosition { get; set; } = Vector2.Zero;
     AbstractController playerController { get; set; }
     AnimationTree AnimationTree { get; set; }
 
@@ -42,6 +43,7 @@ public partial class PlayerModel : AbstractModel
         shotgun = GetNode<Node3D>("foot_l/Skeleton3D/BoneAttachment3D/playerarm/shotgun");
         bazooka = GetNode<Node3D>("foot_l/Skeleton3D/BoneAttachment3D/playerarm/bazooka");
 
+
         if (TrackingPeerId == SimulationPeerId)
         {
             this.Visible = false;
@@ -58,7 +60,13 @@ public partial class PlayerModel : AbstractModel
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-
+        if(this.GetMultiplayerAuthority() != SimulationPeerId)
+        {
+            GetAnimationTree().Set("parameters/movement/blend_position", MovementBlendPosition);
+        } else
+        {
+            MovementBlendPosition = (Vector2)GetAnimationTree().Get("parameters/movement/blend_position");
+        }
 	}
 
     public override void ApplyImpulse(Vector3 vec)
