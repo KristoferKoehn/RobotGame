@@ -47,6 +47,31 @@ spawn_path = NodePath("../AbilityModels")
 
 [node name="PlayerController" parent="." instance=ExtResource("2_5xjtm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+HorizontalMouseSensitivity = null
+VerticalMouseSensitivity = null
+ZoomedMouseSensitivityModifier = null
+CameraScrollSensitivity = null
+CameraScrollMaxIn = null
+CameraScrollMaxOut = null
+CameraZValue = null
+CameraDefaultFOV = null
+CameraZoomedFOV = null
+mass = null
+realMass = null
+modelProjectedArea = null
+modelVolume = null
+jumpHeight = null
+maxSprintSpeed = null
+maxSwimSpeed = null
+maxFlySpeed = null
+angleOfAttack = null
+turnSpeed = null
+locomotionBlendPositionSpeed = null
+JetpackMaxFuel = null
+JetpackFuelConsumptionRate = null
+JetpackFuelRefillRate = null
+jetPackForce = null
+propulsionThrustForce = null
 
 [node name="Objective Nodes" type="Node" parent="."]
 
