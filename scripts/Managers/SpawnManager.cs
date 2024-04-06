@@ -194,7 +194,7 @@ namespace MMOTest.scripts.Managers
             a.ActorID = ActorID;
 
 
-            ActorManager.GetInstance().actors[(long)1] = a;
+            ActorManager.GetInstance().actors[ActorID] = a;
 
             Vector3 spawnPosition = GetValidSpawnPosition((Teams)statsDict[StatType.CTF_TEAM]);
 
