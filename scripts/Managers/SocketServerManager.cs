@@ -82,9 +82,7 @@ namespace Managers.SocketServerManager
                 }
 
                 //make json of list of enemies and list of 
-                JObject job = new JObject();
                 List<byte[]> allies = new List<byte[]>();
-                Vector3 t = new Vector3();
                 
                 foreach(Actor a in ActorManager.GetInstance().actors.Values)
                 {
@@ -93,13 +91,9 @@ namespace Managers.SocketServerManager
                         allies.Add(GD.VarToBytes(a.PuppetModelReference.GlobalPosition));
                         
                     }
-
                 }
-                
 
-                job.Add(allies);
-
-                wsp.SendText(JsonConvert.SerializeObject(job));
+                wsp.SendText(JsonConvert.SerializeObject(allies));
 
 
                 while (wsp.GetAvailablePacketCount() > 0)
