@@ -2,13 +2,13 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "Godot.SourceGenerators/4.2.1": {
+      "Godot.SourceGenerators/4.3.0-dev.5": {
         "type": "package",
         "build": {
           "build/Godot.SourceGenerators.props": {}
         }
       },
-      "GodotSharp/4.2.1": {
+      "GodotSharp/4.3.0-dev.5": {
         "type": "package",
         "compile": {
           "lib/net6.0/GodotSharp.dll": {
@@ -21,10 +21,10 @@
           }
         }
       },
-      "GodotSharpEditor/4.2.1": {
+      "GodotSharpEditor/4.3.0-dev.5": {
         "type": "package",
         "dependencies": {
-          "GodotSharp": "4.2.1"
+          "GodotSharp": "4.3.0-dev.5"
         },
         "compile": {
           "lib/net6.0/GodotSharpEditor.dll": {
@@ -53,40 +53,40 @@
     }
   },
   "libraries": {
-    "Godot.SourceGenerators/4.2.1": {
-      "sha512": "MdLFzDZEMUbXRLH4bLX8o9Blk76M7Op76RyobZ1zyKgcIkgPqG+p53jgLFLSHpBGFKKaW3kB0w6om+wYauwHbw==",
+    "Godot.SourceGenerators/4.3.0-dev.5": {
+      "sha512": "g+JEo95nU7isjpI5bXwpiWoYxFZeE0MKU9197upDII5XrNkr6KMzi2JFeed0BVdxF8RTN0imRvhzFbG2vsXJoQ==",
       "type": "package",
-      "path": "godot.sourcegenerators/4.2.1",
+      "path": "godot.sourcegenerators/4.3.0-dev.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "analyzers/dotnet/cs/Godot.SourceGenerators.dll",
         "build/Godot.SourceGenerators.props",
-        "godot.sourcegenerators.4.2.1.nupkg.sha512",
+        "godot.sourcegenerators.4.3.0-dev.5.nupkg.sha512",
         "godot.sourcegenerators.nuspec"
       ]
     },
-    "GodotSharp/4.2.1": {
-      "sha512": "6a/GML0jXcwT6LxDBtRx+hpPBUFGAmK7GVb/ehKP53nx0AHA+Yc//B7anXY4U4WCMB+ckgsouWpd8rAeupNfbw==",
+    "GodotSharp/4.3.0-dev.5": {
+      "sha512": "6FSY9qEKzFXjBLnrqdv99baKCOdEvZ1XfwjDIstpq1RPljZoxGjRBB0vLBxZNoZD+sAtvmbohoT0nJvSFmH5Eg==",
       "type": "package",
-      "path": "godotsharp/4.2.1",
+      "path": "godotsharp/4.3.0-dev.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "godotsharp.4.2.1.nupkg.sha512",
+        "godotsharp.4.3.0-dev.5.nupkg.sha512",
         "godotsharp.nuspec",
         "lib/net6.0/GodotSharp.dll",
         "lib/net6.0/GodotSharp.xml"
       ]
     },
-    "GodotSharpEditor/4.2.1": {
-      "sha512": "wibPQq4Gj43T/zlhwogJRnRSxfvfIqGCvnPEz1nSp6aPx4CTu1gZW7gDYx/MRQ9LX2SwKh4N6QXkFp7PhB33Tw==",
+    "GodotSharpEditor/4.3.0-dev.5": {
+      "sha512": "tMUDpFosJrQdlSOWAM1T1YBv/cMnZVhLdJq2E73VixVcyrxloyBb32BRMmUapTiRt9ff9hYPpivxV07HWljaGg==",
       "type": "package",
-      "path": "godotsharpeditor/4.2.1",
+      "path": "godotsharpeditor/4.3.0-dev.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "godotsharpeditor.4.2.1.nupkg.sha512",
+        "godotsharpeditor.4.3.0-dev.5.nupkg.sha512",
         "godotsharpeditor.nuspec",
         "lib/net6.0/GodotSharpEditor.dll",
         "lib/net6.0/GodotSharpEditor.xml"
@@ -125,31 +125,31 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Godot.SourceGenerators >= 4.2.1",
-      "GodotSharp >= 4.2.1",
-      "GodotSharpEditor >= 4.2.1",
+      "Godot.SourceGenerators >= 4.3.0-dev.5",
+      "GodotSharp >= 4.3.0-dev.5",
+      "GodotSharpEditor >= 4.3.0-dev.5",
       "Newtonsoft.Json >= 13.0.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kristofer\\.nuget\\packages\\": {},
-    "C:\\Users\\Kristofer\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {}
+    "C:\\Users\\Arlo\\.nuget\\packages\\": {},
+    "C:\\Users\\Arlo\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\USERS\\KRISTOFER\\DOCUMENTS\\ROBOTGAME\\New Game Project.csproj",
+      "projectUniqueName": "C:\\Users\\Arlo\\Coding Projects\\Personal Projects\\Godot Projects\\RobotGame\\New Game Project.csproj",
       "projectName": "New Game Project",
-      "projectPath": "C:\\USERS\\KRISTOFER\\DOCUMENTS\\ROBOTGAME\\New Game Project.csproj",
-      "packagesPath": "C:\\Users\\Kristofer\\.nuget\\packages\\",
-      "outputPath": "C:\\USERS\\KRISTOFER\\DOCUMENTS\\ROBOTGAME\\.godot\\mono\\temp\\obj\\",
+      "projectPath": "C:\\Users\\Arlo\\Coding Projects\\Personal Projects\\Godot Projects\\RobotGame\\New Game Project.csproj",
+      "packagesPath": "C:\\Users\\Arlo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Arlo\\Coding Projects\\Personal Projects\\Godot Projects\\RobotGame\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Users\\Kristofer\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
+        "C:\\Users\\Arlo\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Kristofer\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Users\\Kristofer\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+        "C:\\Users\\Arlo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Arlo\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -177,15 +177,15 @@
         "dependencies": {
           "Godot.SourceGenerators": {
             "target": "Package",
-            "version": "[4.2.1, )"
+            "version": "[4.3.0-dev.5, )"
           },
           "GodotSharp": {
             "target": "Package",
-            "version": "[4.2.1, )"
+            "version": "[4.3.0-dev.5, )"
           },
           "GodotSharpEditor": {
             "target": "Package",
-            "version": "[4.2.1, )"
+            "version": "[4.3.0-dev.5, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
@@ -208,7 +208,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

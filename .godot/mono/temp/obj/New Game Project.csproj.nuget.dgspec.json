@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kristofer\\Documents\\RobotGame\\New Game Project.csproj": {}
+    "C:\\Users\\Arlo\\Coding Projects\\Personal Projects\\Godot Projects\\RobotGame\\New Game Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kristofer\\Documents\\RobotGame\\New Game Project.csproj": {
+    "C:\\Users\\Arlo\\Coding Projects\\Personal Projects\\Godot Projects\\RobotGame\\New Game Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kristofer\\Documents\\RobotGame\\New Game Project.csproj",
+        "projectUniqueName": "C:\\Users\\Arlo\\Coding Projects\\Personal Projects\\Godot Projects\\RobotGame\\New Game Project.csproj",
         "projectName": "New Game Project",
-        "projectPath": "C:\\Users\\Kristofer\\Documents\\RobotGame\\New Game Project.csproj",
-        "packagesPath": "C:\\Users\\Kristofer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kristofer\\Documents\\RobotGame\\.godot\\mono\\temp\\obj\\",
+        "projectPath": "C:\\Users\\Arlo\\Coding Projects\\Personal Projects\\Godot Projects\\RobotGame\\New Game Project.csproj",
+        "packagesPath": "C:\\Users\\Arlo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Arlo\\Coding Projects\\Personal Projects\\Godot Projects\\RobotGame\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Users\\Kristofer\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
+          "C:\\Users\\Arlo\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Kristofer\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Users\\Kristofer\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+          "C:\\Users\\Arlo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Arlo\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,15 +46,15 @@
           "dependencies": {
             "Godot.SourceGenerators": {
               "target": "Package",
-              "version": "[4.2.1, )"
+              "version": "[4.3.0-dev.5, )"
             },
             "GodotSharp": {
               "target": "Package",
-              "version": "[4.2.1, )"
+              "version": "[4.3.0-dev.5, )"
             },
             "GodotSharpEditor": {
               "target": "Package",
-              "version": "[4.2.1, )"
+              "version": "[4.3.0-dev.5, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -77,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

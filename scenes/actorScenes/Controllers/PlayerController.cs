@@ -245,7 +245,7 @@ public partial class PlayerController : AbstractController
             {
                 target = (RayCast.GlobalPosition - Camera.GlobalPosition).Normalized() * 1000f; // Arbitrary "Max distance"
             }
-            Vector3 fireballTrajectory = (target - CastingPoint.GlobalPosition).Normalized();
+            Vector3 fireballTrajectory = (target - CastingPoint.GlobalPosition).Normalized() * 60f;
 
             JObject job = new JObject
             {

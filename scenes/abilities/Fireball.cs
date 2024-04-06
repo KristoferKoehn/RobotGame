@@ -15,7 +15,7 @@ public partial class Fireball : AbstractAbility
         Vector3 velocity = new Vector3((float)obj.Property("velx"), (float)obj.Property("vely"), (float)obj.Property("velz"));
         SourceActorID = (int)obj.Property("SourceID");
         this.Position = position + velocity * 2;
-        this.LinearVelocity = velocity * 60;
+        this.LinearVelocity = velocity;
     }
 
     public override void ApplyHost(bool Host)
