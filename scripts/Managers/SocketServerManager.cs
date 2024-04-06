@@ -88,7 +88,12 @@ namespace Managers.SocketServerManager
                 List<Vector3> allies = new List<Vector3>();
                 foreach(Actor a in ActorManager.GetInstance().actors.Values)
                 {
-                    allies.Add(a.PuppetModelReference.GlobalPosition);
+                    if(a.PuppetModelReference != null)
+                    {
+                        allies.Add(a.PuppetModelReference.GlobalPosition);
+                    }
+
+                    
                 }
 
                 job.Add(allies);
