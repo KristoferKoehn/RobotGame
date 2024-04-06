@@ -11,6 +11,8 @@ script = ExtResource("1_cejqk")
 
 [node name="PlayerDetector" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.05, 0)
+collision_layer = 0
+collision_mask = 2
 
 [node name="PlayerDetectorCollision3D" type="CollisionShape3D" parent="PlayerDetector"]
 shape = SubResource("CylinderShape3D_dkxh7")
@@ -19,83 +21,100 @@ shape = SubResource("CylinderShape3D_dkxh7")
 
 [node name="UpperRayCast3D" type="RayCast3D" parent="NorthRayCasts"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="LowerRayCast3D" type="RayCast3D" parent="NorthRayCasts"]
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="NorthEastRayCasts" type="Node3D" parent="."]
 
 [node name="UpperRayCast3D" type="RayCast3D" parent="NorthEastRayCasts"]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 4, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="LowerRayCast3D" type="RayCast3D" parent="NorthEastRayCasts"]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="EastRayCasts" type="Node3D" parent="."]
 
 [node name="UpperRayCast3D" type="RayCast3D" parent="EastRayCasts"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="LowerRayCast3D" type="RayCast3D" parent="EastRayCasts"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="SouthEastRayCasts" type="Node3D" parent="."]
 
 [node name="UpperRayCast3D" type="RayCast3D" parent="SouthEastRayCasts"]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 4, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="LowerRayCast3D" type="RayCast3D" parent="SouthEastRayCasts"]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 0, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="SouthRayCasts" type="Node3D" parent="."]
 
 [node name="UpperRayCast3D" type="RayCast3D" parent="SouthRayCasts"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="LowerRayCast3D" type="RayCast3D" parent="SouthRayCasts"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="SouthWestRayCasts" type="Node3D" parent="."]
 
 [node name="UpperRayCast3D" type="RayCast3D" parent="SouthWestRayCasts"]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0, 4, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="LowerRayCast3D" type="RayCast3D" parent="SouthWestRayCasts"]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0, 0, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="WestRayCasts" type="Node3D" parent="."]
 
 [node name="UpperRayCast3D" type="RayCast3D" parent="WestRayCasts"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="LowerRayCast3D" type="RayCast3D" parent="WestRayCasts"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="NorthWestRayCasts" type="Node3D" parent="."]
 
 [node name="UpperRayCast3D" type="RayCast3D" parent="NorthWestRayCasts"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 4, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="LowerRayCast3D" type="RayCast3D" parent="NorthWestRayCasts"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -50)
+hit_back_faces = false
 
 [node name="LineOfSight" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+hit_back_faces = false
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
