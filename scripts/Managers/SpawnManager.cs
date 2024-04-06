@@ -184,6 +184,7 @@ namespace MMOTest.scripts.Managers
             a.stats = sb;
             a.PuppetModelReference = em;
 
+           
             RandomNumberGenerator rng = new RandomNumberGenerator();
             int ActorID = (int)rng.Randi();
             while (ActorManager.GetInstance().GetActor(ActorID) != null)
@@ -193,8 +194,10 @@ namespace MMOTest.scripts.Managers
 
             a.ActorID = ActorID;
 
+            StatManager.GetInstance().AssignStatBlock(sb.SerializeStatBlock(), ActorID);
 
             ActorManager.GetInstance().actors[ActorID] = a;
+
 
             Vector3 spawnPosition = GetValidSpawnPosition((Teams)statsDict[StatType.CTF_TEAM]);
 
