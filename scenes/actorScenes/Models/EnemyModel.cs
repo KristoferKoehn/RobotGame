@@ -182,7 +182,10 @@ public partial class EnemyModel : AbstractModel
         lastLeg = Leg;
         lastBody = Body;
         lastBackWeapon = BackWeapon; 
-        lastHandWeapon = HandWeapon; 
+        lastHandWeapon = HandWeapon;
+
+
+        GD.Print("y: " + GlobalPosition.Y);
 	}
 
     public override void ApplyImpulse(Vector3 vec)
