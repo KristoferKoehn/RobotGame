@@ -26,9 +26,9 @@ properties/3/replication_mode = 1
 [node name="EnemyModel" type="CharacterBody3D" node_paths=PackedStringArray("LegNodes", "BodyNodes", "HandMarker", "BackMarker")]
 script = ExtResource("1_53x8n")
 LegNodes = NodePath("Lightbotlegs")
-BodyNodes = NodePath("@Node3D@49223")
-HandMarker = NodePath("@Node3D@49223/shouldercuff_l/Skeleton3D/right/hand/spawner")
-BackMarker = NodePath("@Node3D@49223/backweapons/spawner")
+BodyNodes = NodePath("@Node3D@121675")
+HandMarker = NodePath("@Node3D@121675/shouldercuff_l/Skeleton3D/right/hand/spawner")
+BackMarker = NodePath("@Node3D@121675/backweapons/spawner")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.39817, 0)
@@ -37,23 +37,10 @@ shape = SubResource("CapsuleShape3D_chhku")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_3eheo")
 
-[node name="@Node3D@47834" type="Node3D" parent="." instance=ExtResource("4_asv2r")]
+[node name="@Node3D@47834" parent="." instance=ExtResource("4_asv2r")]
 
-[node name="Lightbotbody" type="Node3D" parent="." node_paths=PackedStringArray("Rifle", "Smg", "Bazooka", "Missile", "ShoulderCannon", "RailCannon", "Handspawner", "Backspawner") instance=ExtResource("2_gjy7e")]
+[node name="Lightbotbody" parent="." node_paths=PackedStringArray("Rifle", "Smg", "Bazooka", "Missile", "ShoulderCannon", "RailCannon", "Handspawner", "Backspawner") instance=ExtResource("2_gjy7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.85, 0)
-script = ExtResource("3_y6ekc")
-Rifle = NodePath("shouldercuff_l/Skeleton3D/right/hand/rifle")
-Smg = NodePath("shouldercuff_l/Skeleton3D/right/hand/smg")
-Bazooka = NodePath("shouldercuff_l/Skeleton3D/right/hand/zook")
-Missile = NodePath("backweapons/missile")
-ShoulderCannon = NodePath("backweapons/shouldercannon")
-RailCannon = NodePath("backweapons/railcannon")
-Handspawner = NodePath("shouldercuff_l/Skeleton3D/right/hand/spawner")
-Backspawner = NodePath("backweapons/spawner")
-
-[node name="@Node3D@49223" type="Node3D" parent="." node_paths=PackedStringArray("Rifle", "Smg", "Bazooka", "Missile", "ShoulderCannon", "RailCannon", "Handspawner", "Backspawner") instance=ExtResource("2_gjy7e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.85, 0)
-script = ExtResource("3_y6ekc")
 Rifle = NodePath("shouldercuff_l/Skeleton3D/right/hand/rifle")
 Smg = NodePath("shouldercuff_l/Skeleton3D/right/hand/smg")
 Bazooka = NodePath("shouldercuff_l/Skeleton3D/right/hand/zook")
@@ -64,3 +51,15 @@ Handspawner = NodePath("shouldercuff_l/Skeleton3D/right/hand/spawner")
 Backspawner = NodePath("backweapons/spawner")
 
 [node name="Lightbotlegs" type="Node3D" parent="." instance=ExtResource("4_asv2r")]
+
+[node name="@Node3D@121675" type="Node3D" parent="." node_paths=PackedStringArray("Rifle", "Smg", "Bazooka", "Missile", "ShoulderCannon", "RailCannon", "Handspawner", "Backspawner") instance=ExtResource("2_gjy7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.85, 0)
+script = ExtResource("3_y6ekc")
+Rifle = NodePath("shouldercuff_l/Skeleton3D/right/hand/rifle")
+Smg = NodePath("shouldercuff_l/Skeleton3D/right/hand/smg")
+Bazooka = NodePath("shouldercuff_l/Skeleton3D/right/hand/zook")
+Missile = NodePath("backweapons/missile")
+ShoulderCannon = NodePath("backweapons/shouldercannon")
+RailCannon = NodePath("backweapons/railcannon")
+Handspawner = NodePath("shouldercuff_l/Skeleton3D/right/hand/spawner")
+Backspawner = NodePath("backweapons/spawner")

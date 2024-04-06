@@ -32,6 +32,8 @@ namespace MMOTest.scripts.Managers
             //set dead = true or something. Lock up the controls. dig a grave
 
             DeadActors.Add(actor.ActorID, actor);
+            Actor a = ActorManager.GetInstance().actors[actor.ActorID];
+            a.PuppetModelReference.IsDead = true;
 
             ActorTimer at = GD.Load<PackedScene>("res://scenes/utility/ActorTimer.tscn").Instantiate<ActorTimer>();
             at.ActorID = actor.ActorID;
