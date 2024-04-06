@@ -200,6 +200,7 @@ public partial class EnemyController : AbstractController
         // Do logic for updating data about quarries
         foreach (Actor actor in actorsInDetectionRange)
         {
+            /*
             Vector3 actorRelativeDirection = (actor.ClientModelReference.GlobalPosition - this.GlobalPosition).Normalized() * Basis;
             if (actorRelativeDirection.Z < 0) // Is in front of us
             {
@@ -213,12 +214,14 @@ public partial class EnemyController : AbstractController
             {
                 quarries.Remove(actor); // They might not be in here. But why check before removing.
             }
+            */
         }
 
         // Do logic for setting activeQuarry if any
         if (ActiveQuarry == null && quarries.Count > 0)
         {
             Actor newQuarry = quarries[0];
+            /*
             float nearestDistance = float.MaxValue;
             foreach (Actor quarry in quarries)
             {
@@ -229,6 +232,7 @@ public partial class EnemyController : AbstractController
                     nearestDistance = distance;
                 }
             }
+            */
             ActiveQuarry = newQuarry;
         }
 
@@ -241,12 +245,13 @@ public partial class EnemyController : AbstractController
             {
                 ActiveQuarry = null;
             }
-
+            /*
             float activeQuarryDistance = (ActiveQuarry.ClientModelReference.GlobalPosition - this.GlobalPosition).Length(); ;
             if (activeQuarryDistance > maxFollowDistance)
             {
                 ActiveQuarry = null;
             }
+            */
         }
 
         // Do logic for setting focusPosition
