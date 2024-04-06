@@ -3,6 +3,7 @@ using MMOTest.Backend;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace MMOTest.scripts.Managers
@@ -69,7 +70,6 @@ namespace MMOTest.scripts.Managers
 
             actor.ClientModelReference.RpcId(actor.ActorMultiplayerAuthority, "AssignDeathState", false);
 
-
             Teams t = (Teams)sb.GetStat(StatType.CTF_TEAM);
             Vector3 spawnPosition = GetValidSpawnPosition(t);
 
@@ -84,7 +84,7 @@ namespace MMOTest.scripts.Managers
             Dictionary<StatType, float> statsDict;
             switch (classname)
             {
-                case "Mage":
+                case "Test":
                     statsDict = new()
                     {
                         [StatType.HEALTH] = 100,
@@ -94,133 +94,6 @@ namespace MMOTest.scripts.Managers
                         [StatType.ARMOR] = 11,
                         [StatType.ABILITY_POINTS] = 14,
                         [StatType.CASTING_SPEED] = 12,
-                        [StatType.PHYSICAL_DAMAGE] = 15,
-                    };
-                    //set models
-                    //push updated stats to client
-                    //tell client to update model
-                    break;
-                case "Warrior":
-                    statsDict = new()
-                    {
-                        [StatType.HEALTH] = 120,
-                        [StatType.MAX_HEALTH] = 120,
-                        [StatType.MANA] = 30,
-                        [StatType.MAGIC_RESIST] = 13,
-                        [StatType.ARMOR] = 20,
-                        [StatType.ABILITY_POINTS] = 4,
-                        [StatType.CASTING_SPEED] = 12,
-                        [StatType.PHYSICAL_DAMAGE] = 35,
-                    };
-                    //set models
-                    //push updated stats to client
-                    //tell client to update model
-                    break;
-                case "Barbarian":
-                    statsDict = new()
-                    {
-                        [StatType.HEALTH] = 110,
-                        [StatType.MAX_HEALTH] = 110,
-                        [StatType.MANA] = 0,
-                        [StatType.MAGIC_RESIST] = 3,
-                        [StatType.ARMOR] = 16,
-                        [StatType.ABILITY_POINTS] = 0,
-                        [StatType.CASTING_SPEED] = 12,
-                        [StatType.PHYSICAL_DAMAGE] = 40,
-                    };
-                    //set models
-                    //push updated stats to client
-                    //tell client to update model
-                    break;
-                case "Druid":
-                    statsDict = new()
-                    {
-                        [StatType.HEALTH] = 110,
-                        [StatType.MAX_HEALTH] = 110,
-                        [StatType.MANA] = 200,
-                        [StatType.MAGIC_RESIST] = 15,
-                        [StatType.ARMOR] = 7,
-                        [StatType.ABILITY_POINTS] = 16,
-                        [StatType.CASTING_SPEED] = 10,
-                        [StatType.PHYSICAL_DAMAGE] = 10,
-                    };
-                    //set models
-                    //push updated stats to client
-                    //tell client to update model
-                    break;
-                case "Rogue":
-                    statsDict = new()
-                    {
-                        [StatType.HEALTH] = 85,
-                        [StatType.MAX_HEALTH] = 85,
-                        [StatType.MANA] = 50,
-                        [StatType.MAGIC_RESIST] = 10,
-                        [StatType.ARMOR] = 12,
-                        [StatType.ABILITY_POINTS] = 3,
-                        [StatType.CASTING_SPEED] = 12,
-                        [StatType.PHYSICAL_DAMAGE] = 45,
-                    };
-                    //set models
-                    //push updated stats to client
-                    //tell client to update model
-                    break;
-                case "Necromancer":
-                    statsDict = new()
-                    {
-                        [StatType.HEALTH] = 100,
-                        [StatType.MAX_HEALTH] = 100,
-                        [StatType.MANA] = 150,
-                        [StatType.MAGIC_RESIST] = 34,
-                        [StatType.ARMOR] = 1,
-                        [StatType.ABILITY_POINTS] = 35,
-                        [StatType.CASTING_SPEED] = 15,
-                        [StatType.PHYSICAL_DAMAGE] = 1,
-                    };
-                    //set models
-                    //push updated stats to client
-                    //tell client to update model
-                    break;
-                case "Engineer":
-                    statsDict = new()
-                    {
-                        [StatType.HEALTH] = 100,
-                        [StatType.MAX_HEALTH] = 100,
-                        [StatType.MANA] = 100,
-                        [StatType.MAGIC_RESIST] = 13,
-                        [StatType.ARMOR] = 11,
-                        [StatType.ABILITY_POINTS] = 14,
-                        [StatType.CASTING_SPEED] = 8,
-                        [StatType.PHYSICAL_DAMAGE] = 15,
-                    };
-                    //set models
-                    //push updated stats to client
-                    //tell client to update model
-                    break;
-                case "Pete":
-                    statsDict = new()
-                    {
-                        [StatType.HEALTH] = 400,
-                        [StatType.MAX_HEALTH] = 400,
-                        [StatType.MANA] = 400,
-                        [StatType.MAGIC_RESIST] = 50,
-                        [StatType.ARMOR] = 50,
-                        [StatType.ABILITY_POINTS] = 50,
-                        [StatType.CASTING_SPEED] = 1,
-                        [StatType.PHYSICAL_DAMAGE] = 50,
-                    };//set models
-                    //push updated stats to client
-                    //tell client to update model
-                    break;
-                case "Skeleton":
-                    statsDict = new()
-                    {
-                        [StatType.HEALTH] = 35,
-                        [StatType.MAX_HEALTH] = 35,
-                        [StatType.MANA] = 0,
-                        [StatType.MAGIC_RESIST] = 8,
-                        [StatType.ARMOR] = 8,
-                        [StatType.ABILITY_POINTS] = 8,
-                        [StatType.CASTING_SPEED] = 17,
                         [StatType.PHYSICAL_DAMAGE] = 15,
                     };
                     //set models
@@ -259,8 +132,8 @@ namespace MMOTest.scripts.Managers
             StatManager.GetInstance().SubscribePeerToActor(PeerID, ActorID);
             //move model to position, controller should follow automatically
             a.ClientModelReference.RpcId(a.ActorMultiplayerAuthority, "MovePlayerToPosition", spawnPosition);
-        }
 
+        }
 
 
         //get input from player

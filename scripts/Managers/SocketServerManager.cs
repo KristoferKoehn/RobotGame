@@ -54,8 +54,6 @@ namespace Managers.SocketServerManager
         public override void _Process(double delta)
         {
 
-
-
             while (TCPin.IsConnectionAvailable())
             {
                 StreamPeerTcp stream = TCPin.TakeConnection();
@@ -72,7 +70,6 @@ namespace Managers.SocketServerManager
             wsp.Poll();
             
 
-
             WebSocketPeer.State state = wsp.GetReadyState();
 
             if (state == WebSocketPeer.State.Open)
@@ -85,8 +82,7 @@ namespace Managers.SocketServerManager
 
                 while (wsp.GetAvailablePacketCount() > 0)
                 {
-                    byte[] msg = wsp.GetPacket();
-                    GD.Print(msg.ToString());
+                    GD.Print(wsp.GetPacket());
                 }
             }
 
