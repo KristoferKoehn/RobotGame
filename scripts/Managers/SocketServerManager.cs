@@ -3,6 +3,7 @@ using MMOTest.Backend;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Managers.SocketServerManager
 {
@@ -81,19 +82,17 @@ namespace Managers.SocketServerManager
                     
                 }
 
-                //make json of list of enemies and list of 
-                List<byte[]> allies = new List<byte[]>();
-                
+                //make json of list of enemies and list of
+                StringBuilder sb = new StringBuilder();
                 foreach(Actor a in ActorManager.GetInstance().actors.Values)
                 {
                     if(a.PuppetModelReference != null)
                     {
-                        allies.Add(GD.VarToBytes(a.PuppetModelReference.GlobalPosition));
-                        
+                        sb.Append(a.PuppetModelReference.GlobalPosition.X + "," + a.PuppetModelReference.GlobalPosition.Z+"|");
                     }
                 }
 
-                wsp.SendText(JsonConvert.SerializeObject(allies));
+                wsp.SendText(sb.ToString());
 
 
                 while (wsp.GetAvailablePacketCount() > 0)
