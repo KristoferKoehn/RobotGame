@@ -156,10 +156,10 @@ namespace MMOTest.scripts.Managers
 
             string[] vals = values.Split(',');
 
-            em.Leg = int.Parse(vals[0]);
-            em.Body = int.Parse(vals[1]);
-            em.BackWeapon = int.Parse(vals[2]);
-            em.HandWeapon = int.Parse(vals[3]);
+            em.Leg = int.Parse(vals[1]);
+            em.Body = int.Parse(vals[2]);
+            em.BackWeapon = int.Parse(vals[3]);
+            em.HandWeapon = int.Parse(vals[4]);
 
 
             Actor a = new Actor();

@@ -1,5 +1,6 @@
 using Godot;
 using MMOTest.Backend;
+using MMOTest.scripts.Managers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
@@ -97,7 +98,15 @@ namespace Managers.SocketServerManager
 
                 while (wsp.GetAvailablePacketCount() > 0)
                 {
-                    GD.Print(wsp.GetPacket().GetStringFromUtf8());
+
+                    string msg = wsp.GetPacket().GetStringFromUtf8();
+                    GD.Print(msg);
+
+                    if (int.Parse(msg.Split(",")[0]) == 0)
+                    {
+                        SpawnManager.GetInstance().SpawnEnemy(msg);
+                    }
+
                 }
             }
 
