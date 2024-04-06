@@ -163,11 +163,17 @@ namespace MMOTest.scripts.Managers
 
 
             Actor a = new Actor();
-            
+            RandomNumberGenerator rng = new RandomNumberGenerator();
+            int ActorID = (int)rng.Randi();
+            while (ActorManager.GetInstance().GetActor(ActorID) != null)
+            {
+                ActorID = (int)rng.Randi();
+            }
+            a.ActorID = ActorID;
 
-            StatBlock sb = new StatBlock();
-            Dictionary<StatType, float> statsDict;
-            statsDict = new()
+            em.ActorID = ActorID;
+
+            Dictionary<StatType, float> statsDict = new()
             {
                 [StatType.HEALTH] = 100,
                 [StatType.MAX_HEALTH] = 100,
@@ -179,20 +185,11 @@ namespace MMOTest.scripts.Managers
                 [StatType.PHYSICAL_DAMAGE] = 15,
                 [StatType.CTF_TEAM] = (int)Teams.PURPLE_TEAM,
             };
+            StatBlock sb = new StatBlock();
             sb.SetStatBlock(statsDict);
 
             a.stats = sb;
             a.PuppetModelReference = em;
-
-           
-            RandomNumberGenerator rng = new RandomNumberGenerator();
-            int ActorID = (int)rng.Randi();
-            while (ActorManager.GetInstance().GetActor(ActorID) != null)
-            {
-                ActorID = (int)rng.Randi();
-            }
-
-            a.ActorID = ActorID;
 
 
             ActorManager.GetInstance().actors[ActorID] = a;
