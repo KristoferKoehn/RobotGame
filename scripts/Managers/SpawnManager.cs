@@ -192,7 +192,10 @@ namespace MMOTest.scripts.Managers
             a.PuppetModelReference = em;
 
 
-            EnemyController enemyController = new EnemyController();
+            EnemyController enemyController = ResourceLoader.Load<PackedScene>("res://scenes/actorScenes/Controllers/EnemyController.tscn").Instantiate<EnemyController>();
+
+
+
             SceneOrganizerManager.GetInstance().CurrentLevel.AddChild(enemyController);
 
             ActorManager.GetInstance().actors[ActorID] = a;
