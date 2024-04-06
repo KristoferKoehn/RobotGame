@@ -4,10 +4,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Numerics;
-using System.Runtime.CompilerServices;
 using MMOTest.Backend;
-using static Godot.TextServer;
 using Vector2 = Godot.Vector2;
 using Vector3 = Godot.Vector3;
 
@@ -126,31 +123,31 @@ public partial class EnemyController : AbstractController
 
         UpperRayCast = GetNode<RayCast3D>("NorthEastRayCasts/UpperRayCast3D");
         lowerRayCast = GetNode<RayCast3D>("NorthEastRayCasts/LowerRayCast3D");
-        NorthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
+        NorthEastRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
         
         UpperRayCast = GetNode<RayCast3D>("EastRayCasts/UpperRayCast3D");
         lowerRayCast = GetNode<RayCast3D>("EastRayCasts/LowerRayCast3D");
-        NorthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
+        EastRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
 
         UpperRayCast = GetNode<RayCast3D>("SouthEastRayCasts/UpperRayCast3D");
         lowerRayCast = GetNode<RayCast3D>("SouthEastRayCasts/LowerRayCast3D");
-        NorthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
+        SouthEastRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
 
         UpperRayCast = GetNode<RayCast3D>("SouthRayCasts/UpperRayCast3D");
         lowerRayCast = GetNode<RayCast3D>("SouthRayCasts/LowerRayCast3D");
-        NorthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
+        SouthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
 
         UpperRayCast = GetNode<RayCast3D>("SouthWestRayCasts/UpperRayCast3D");
         lowerRayCast = GetNode<RayCast3D>("SouthWestRayCasts/LowerRayCast3D");
-        NorthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
+        SouthWestRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
 
         UpperRayCast = GetNode<RayCast3D>("WestRayCasts/UpperRayCast3D");
         lowerRayCast = GetNode<RayCast3D>("WestEastRayCasts/LowerRayCast3D");
-        NorthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
+        WestRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
 
         UpperRayCast = GetNode<RayCast3D>("NorthWestRayCasts/UpperRayCast3D");
         lowerRayCast = GetNode<RayCast3D>("NorthWestRayCasts/LowerRayCast3D");
-        NorthRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
+        NorthWestRayCasts = new RayCastPair(UpperRayCast, lowerRayCast, personalSpaceRadius);
 
         lineOfSight = GetNode<RayCast3D>("LineOfSight");
 
