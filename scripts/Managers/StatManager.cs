@@ -149,6 +149,7 @@ public partial class StatManager : Node
     {
         Dictionary<StatType, float> sb = JsonConvert.DeserializeObject< Dictionary<StatType, float>>(jstr);
         ActorManager.GetInstance().GetActor(ActorID).stats.SetStatBlock(sb);
+        GD.Print("Shit got changed");
     }
 
     /// <summary>

@@ -241,6 +241,8 @@ namespace MMOTest.scripts.Managers
                         [StatType.PHYSICAL_DAMAGE] = 15,
                     };
                     break;
+
+
             }
 
             StatBlock sb = new StatBlock();
@@ -253,7 +255,7 @@ namespace MMOTest.scripts.Managers
             Vector3 spawnPosition = GetValidSpawnPosition(Teams.NO_TEAM);
 
             Actor a = ActorManager.GetInstance().GetActor(ActorID);
-
+            StatManager.GetInstance().SubscribePeerToActor(PeerID, ActorID);
             //move model to position, controller should follow automatically
             a.ClientModelReference.RpcId(a.ActorMultiplayerAuthority, "MovePlayerToPosition", spawnPosition);
         }

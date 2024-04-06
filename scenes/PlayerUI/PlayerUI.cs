@@ -15,7 +15,6 @@ public partial class PlayerUI : CanvasLayer
 		this.ActorID = ActorID;
         initialized = true;
 		GetNode<Label>("ActorID").Text = "ActorID: " + ActorID;
-        GetNode<Label>("Team").Text = "Team: " + ((Teams)StatManager.GetInstance().GetStatBlock(ActorID).GetStat(StatType.CTF_TEAM)).ToString();
 		this.Name = ActorID.ToString();
     }
 
@@ -36,6 +35,8 @@ public partial class PlayerUI : CanvasLayer
 		}
 		StatBlock sb = StatManager.GetInstance().GetStatBlock(ActorID);
 		float health = sb.GetStat(StatType.HEALTH);
+		float maxHealth = sb.GetStat(StatType.MAX_HEALTH);
+		progressBar.MaxValue = maxHealth;
         progressBar.Value = health;
 	}
 
@@ -63,6 +64,4 @@ public partial class PlayerUI : CanvasLayer
             }
         }
     }
-
-
 }

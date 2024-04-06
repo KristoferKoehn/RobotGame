@@ -12,7 +12,6 @@ public partial class ActorManager : Node
 	public Dictionary<long, Actor> actors = new Dictionary<long, Actor>();
 	static ActorManager instance = null;
 
-
 	private ActorManager() 
 	{
 		
