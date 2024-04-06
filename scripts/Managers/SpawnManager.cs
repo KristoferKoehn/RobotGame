@@ -249,6 +249,7 @@ namespace MMOTest.scripts.Managers
             sb.SetStatBlock(statsDict);
 
             StatManager.GetInstance().RpcId(PeerID, "AssignStatBlock", sb.SerializeStatBlock(), ActorID);
+            StatManager.GetInstance().AssignStatBlock(sb.SerializeStatBlock(), ActorID);
             ModelManager.GetInstance().ChangeActorModel(ActorID, classname);
 
             //no teams by default, change this later somehow
