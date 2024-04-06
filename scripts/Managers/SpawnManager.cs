@@ -197,7 +197,7 @@ namespace MMOTest.scripts.Managers
             Vector3 spawnPosition = GetValidSpawnPosition((Teams)statsDict[StatType.CTF_TEAM]);
 
 
-            SceneOrganizerManager.GetInstance().CurrentLevel.GetNode<Node>("PuppetModels").AddChild(em);
+            SceneOrganizerManager.GetInstance().CurrentLevel.GetNode<Node>("PuppetModels").AddChild(em,forceReadableName:true);
 
         }
 
