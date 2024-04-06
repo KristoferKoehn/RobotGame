@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cj5kbymecdp11"]
+[gd_scene load_steps=15 format=3 uid="uid://cj5kbymecdp11"]
 
 [ext_resource type="Script" path="res://scenes/levels/MainLevel.cs" id="1_i7bbw"]
 [ext_resource type="PackedScene" uid="uid://bmk783fseep4a" path="res://scenes/actorScenes/Controllers/PlayerController.tscn" id="2_5xjtm"]
+[ext_resource type="PackedScene" uid="uid://doh3pod5torld" path="res://scenes/actorScenes/Controllers/EnemyController.tscn" id="5_w6nd1"]
 [ext_resource type="PackedScene" uid="uid://bjjceeyq3csc3" path="res://scenes/Environment/Skybox.tscn" id="16_l618w"]
 [ext_resource type="PackedScene" uid="uid://cuaikm7d1lbke" path="res://scenes/utility/SpawnArea.tscn" id="17_el60w"]
 
@@ -13,6 +14,18 @@ resource_local_to_scene = true
 size = Vector3(9.616, 1, 7.929)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jyenp"]
+resource_local_to_scene = true
+size = Vector3(141.65, 0.97, 135.665)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c0tnj"]
+resource_local_to_scene = true
+size = Vector3(141.65, 0.97, 135.665)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_18mvj"]
+resource_local_to_scene = true
+size = Vector3(141.65, 0.97, 135.665)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m4rr2"]
 resource_local_to_scene = true
 size = Vector3(141.65, 0.97, 135.665)
 
@@ -82,17 +95,17 @@ Shape = SubResource("BoxShape3D_jyenp")
 [node name="SpawnArea2" parent="." instance=ExtResource("17_el60w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7934, 24.8975, -383.025)
 Team = 5
-Shape = SubResource("BoxShape3D_jyenp")
+Shape = SubResource("BoxShape3D_c0tnj")
 
 [node name="SpawnArea3" parent="." instance=ExtResource("17_el60w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 342.396, 24.8975, 169.975)
 Team = 5
-Shape = SubResource("BoxShape3D_jyenp")
+Shape = SubResource("BoxShape3D_18mvj")
 
 [node name="SpawnArea4" parent="." instance=ExtResource("17_el60w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -342.414, 24.8975, -274.751)
 Team = 5
-Shape = SubResource("BoxShape3D_jyenp")
+Shape = SubResource("BoxShape3D_m4rr2")
 
 [node name="MAP" type="Node3D" parent="."]
 
@@ -419,6 +432,8 @@ shape = SubResource("ConcavePolygonShape3D_7ghl1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.39424, 0)
 mesh = SubResource("BoxMesh_c3kcp")
 surface_material_override/0 = SubResource("StandardMaterial3D_s6rhw")
+
+[node name="EnemyController" parent="." instance=ExtResource("5_w6nd1")]
 
 [connection signal="child_entered_tree" from="PuppetModels" to="." method="_on_puppet_models_child_entered_tree"]
 [connection signal="child_entered_tree" from="ClientModels" to="." method="_on_client_models_child_entered_tree"]
